@@ -10,10 +10,12 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/icon.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/writing-mode.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/number.isrange.js"></script>
 <script src="js/css.js"></script>
 <script src="js/font-size.js"></script>
+<script src="js/writing-mode.js"></script>
 <script src="js/main.js"></script>
 </head>
 <body>
@@ -22,9 +24,12 @@
     <label>writing-mode<select id="writing-mode"><option value="horizontal-tb">horizontal-tb</option><option value="vertical-rl">vertical-rl</option></select><label>
     <label>column-count<select id="column-count"><option value="1">1</option><option value="2">2</option></select><label>
     <table>
-        <tr><th>clientWidth</th><td id="clientWidth"></td></tr>
-        <tr><th>clientHeight</th><td id="clientHeight"></td></tr>
-        <tr><th></th><td></td></tr>
+        <tr><th>devicePixelRatio</th><td id="devicePixelRatio"></td><th>fontSize</th><td id="fontSize"></td></tr>
+        <tr><th>screenWidth</th><td id="screenWidth"></td><th>screenHeight</th><td id="screenHeight"></td></tr>
+        <tr><th>inlineSize</th><td id="inlineSize"></td><th>blockSize</th><td id="blockSize"></td></tr>
+        <tr><th>clientWidth</th><td id="clientWidth"></td><th>clientHeight</th><td id="clientHeight"></td></tr>
+        <tr><th>innerWidth</th><td id="innerWidth"></td><th>innerHeight</th><td id="innerHeight"></td></tr>
+        <tr><th>scrollbarWidth</th><td id="scrollbarWidth"></td><th>scrollbarHeight</th><td id="scrollbarHeight"></td></tr>
     </table>
     <p>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０</p>
     <p>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０</p>

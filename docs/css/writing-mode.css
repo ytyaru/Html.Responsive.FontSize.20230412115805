@@ -1,0 +1,16 @@
+@charset "utf-8";
+:root {
+    --writing-mode: horizontal-tb;
+    --text-orientation: unset;
+    --text-decoration: underline;
+}
+body {
+    writing-mode: var(--writing-mode);
+    text-orientation: var(--text-orientation);
+    text-decoration: var(--text-orientation);
+}
+.text-combine { /* 縦中横 */
+    text-combine-upright: all;
+    -ms-text-combine-horizontal: all;
+    -webkit-text-combine: horizontal;
+}
