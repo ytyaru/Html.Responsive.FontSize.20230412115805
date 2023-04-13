@@ -23,21 +23,18 @@ class Column {
         WritingMode.resetSize()
     }
     #calcPageNum() {
-        this.#page = Math.ceil(this.#size.scroll.inline / this.#size.client.inline)
+        this.#page = Math.floor(this.#size.target.scroll.inline / this.#size.client.inline)
+        console.log(Css.get('--column-gap'), this.#page, this.#size.target.scroll.inline, this.#size.client.inline)
         if (1===this.#count) { this.#setPadding(0); return; }
-        const diff = Math.abs(this.#size.scroll.inline - (this.#page * this.#size.client.inline))
+        const diff = Math.abs(this.#size.target.scroll.inline - (this.#page * this.#size.client.inline))
         //console.log(diff, this.#size.scroll.inline, (prePageSize + preGapSize), prePageSize, preGapSize, GAP)
-        console.log(diff, this.#size.scroll.inline, (this.#page * this.#size.client.inline))
+        console.log(diff, this.#size.target.scroll.inline, (this.#page * this.#size.client.inline))
         if (diff < 5) { this.#setPadding(0); return; }
         else if (diff < this.#size.client.inline) {
             const addBlankColNum = Math.ceil(diff / (this.#size.client.inline / this.#count))
             this.#setPadding(addBlankColNum * this.#size.client.block)
             console.log('addNewPageNum:', addBlankColNum, addBlankColNum * this.#size.client.block)
             this.#setPadding(addBlankColNum * this.#size.client.block)
-            document.querySelector('p:last-child').style.setProperty('title', `最後だよ`)
-            document.querySelector('p:last-child').style.setProperty('padding-end', `${addBlankColNum * this.#size.client.block}px`)
-            console.log(document.querySelector('p:last-child'))
-            console.log(Css.get('padding-end', document.querySelector('p:last-child')))
         } else { throw new Error('計算おかしいと思う') }
     }
     // padding-endが機能しない。たぶんJS APIのバグ
@@ -45,11 +42,11 @@ class Column {
     //#setPadding(px) { document.querySelector('p:last-child').style.setProperty(`padding-${(WritingMode.isHorizontal()) ? 'bottom' : 'right'}`, `${px}px`) }
     #setPadding(px) {
         if (WritingMode.isHorizontal()) {
-            document.querySelector('p:last-child').style.setProperty(`padding-bottom`, `${px}px`)
-            document.querySelector('p:last-child').style.setProperty(`padding-right`, `0px`)
+            Css.set('--last-padding-bottom', `${px}px`)
+            Css.set('--last-padding-right', `0px`)
         } else {
-            document.querySelector('p:last-child').style.setProperty(`padding-bottom`, `0px`)
-            document.querySelector('p:last-child').style.setProperty(`padding-right`, `${px}px`)
+            Css.set('--last-padding-bottom', `0px`)
+            Css.set('--last-padding-right', `${px}px`)
         }
     }
     /*

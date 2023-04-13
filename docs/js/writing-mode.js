@@ -2,7 +2,9 @@
 class WritingMode {
     #mode
     #size
+    #target
     constructor() {
+        this.#target = document.querySelector('main') || document.body
         this.#size = {
             screen: { inline:0, block:0 }, // 画面
             avail: { inline:0, block:0 },  // タスクバー除く画面
@@ -11,6 +13,10 @@ class WritingMode {
             client: { inline:0, block:0 }, // ブラウザ内の表示領域（スクロールバー除く）
             scrollbar: { inline:0, block:0 }, // スクロールバー
             scroll: { inline:0, start:0, size:0 },
+            target: {
+                client: { inline:0, block:0 },
+                scroll: { inline:0, start:0, size:0 },
+            }
         }
         this.Modes= Object.freeze({
             Horizontal: 'horizontal-tb',
@@ -18,6 +24,8 @@ class WritingMode {
         })
         this.Mode = this.Modes.Horizontal
     }
+    get Target() { return this.#target }
+    set Target(el) { this.#target = el }
     get Size() { return Object.freeze(this.#deepCopy(this.#size)) }
     get Mode() { return this.#mode }
     set Mode(v) {
@@ -50,12 +58,22 @@ class WritingMode {
         Css.set('--text-orientation', 'unset')
         Css.set('--text-decoration', 'underline')
         this.#setSizeHorizontal()
+        Css.set('--inline-size', `${this.#size.scroll.inline}px`)
+        Css.set('--block-size', `${this.#size.client.block}px`)
+        Css.set('--scroll-snap-type-dir', 'x')
+        Css.set('--overflow-x', 'scroll')
+        Css.set('--overflow-y', 'hidden')
     }
     #setVertical() {
         Css.set('--writing-mode', 'vertical-rl')
         Css.set('--text-orientation', 'upright')
         Css.set('--text-decoration', 'overline')
         this.#setSizeVertical()
+        Css.set('--inline-size', `${this.#size.scroll.inline}px`)
+        Css.set('--block-size', `${this.#size.client.block}px`)
+        Css.set('--scroll-snap-type-dir', 'y')
+        Css.set('--overflow-x', 'hidden')
+        Css.set('--overflow-y', 'scroll')
     }
     #setSizeHorizontal() {
         this.#size.screen.inline = screen.width;
@@ -72,6 +90,14 @@ class WritingMode {
         this.#size.scrollbar.block = this.#size.inner.block - this.#size.client.block;
         this.#size.scroll.inline = document.documentElement.scrollWidth
         this.#size.scroll.start = document.documentElement.scrollLeft
+        if (this.#target) {
+            this.#size.target.client.inline = this.#target.clientWidth
+            this.#size.target.client.block = this.#target.clientHeight
+            this.#size.target.scroll.inline = this.#target.scrollWidth
+            this.#size.target.scroll.start = this.#target.scrollLeft
+        }
+        console.log(this.#size)
+        console.log(this.#target)
     }
     #setSizeVertical() {
         this.#size.screen.inline = screen.height;
@@ -88,6 +114,14 @@ class WritingMode {
         this.#size.scrollbar.block = this.#size.inner.block - this.#size.client.block;
         this.#size.scroll.inline = document.documentElement.scrollHeight
         this.#size.scroll.start = document.documentElement.scrollTop
+        if (this.#target) {
+            this.#size.target.client.inline = this.#target.clientHeight
+            this.#size.target.client.block = this.#target.clientWidth
+            this.#size.target.scroll.inline = this.#target.scrollHeight
+            this.#size.target.scroll.start = this.#target.scrollTop
+        }
+        console.log(this.#size)
+        console.log(this.#target)
     }
     /*
     valid(id) { const v = Object.keys(this.Modes).map(k=>this.Modes[k]).includes(id); if (!v) {throw new Error('writing-modeはhorizontal-tbかvertical-rlのどちらかにしてください。')} return v;  }

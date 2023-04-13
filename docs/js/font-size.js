@@ -10,6 +10,7 @@ class FontSize {
         this.#target = (el) ? el : document.body
         this.resizeObserver = new ResizeObserver(entries => { this.reset() })
         this.resizeObserver.observe(this.#target);
+        WritingMode.Target = el
     }
     reset() {
         WritingMode.resetSize()
@@ -26,7 +27,7 @@ class FontSize {
         this.#show()
     }
     setfontSize() {
-        if (this.#size.client.inline < 720) { Css.set('--column-count', '1'); Css.set(`--font-size`, '16px'); }
+        if (this.#size.client.inline < 720) { Css.set('--column-count', '1'); Css.set(`--font-size`, '16px'); this.#fontSize=16; }
         else if (this.#size.client.inline  < 1024) { this.#setFontSize(1, 40) }
         else if (this.#size.client.inline < 1280) { this.#setFontSize(1, 45) }
         else if (this.#size.client.inline < 1920) { this.#setFontSize(2, 35) }
@@ -39,7 +40,10 @@ class FontSize {
         const G = Css.getFloat('--column-gap')
         const PS = Css.getFloat('--padding-inline-start')
         const PE = Css.getFloat('--padding-inline-end')
-        this.#fontSize = (this.#size.client.inline / devicePixelRatio) / (((lineOfChars + (lineOfChars * LS) + (PS + PE)) * columnCount) + (G * (columnCount-1)))
+        this.#fontSize = (this.#size.client.inline) / (((lineOfChars + (lineOfChars * LS) + (PS + PE)) * columnCount) + (G * (columnCount-1)))
+        //this.#fontSize = Math.max(16, (this.#size.client.inline) / (((lineOfChars + (lineOfChars * LS) + (PS + PE)) * columnCount) + (G * (columnCount-1))))
+        //this.#fontSize = Math.max(16, (this.#size.client.inline / devicePixelRatio) / (((lineOfChars + (lineOfChars * LS) + (PS + PE)) * columnCount) + (G * (columnCount-1))))
+        //this.#fontSize = (this.#size.client.inline / devicePixelRatio) / (((lineOfChars + (lineOfChars * LS) + (PS + PE)) * columnCount) + (G * (columnCount-1)))
         console.log(columnCount, lineOfChars, LS, G, this.#fontSize)
         Css.set('--font-size', `${this.#fontSize}px`)
         //Css.set('--font-size', `16px`)
