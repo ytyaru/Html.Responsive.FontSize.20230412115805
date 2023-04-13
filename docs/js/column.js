@@ -36,7 +36,7 @@ class Column {
         // 再現しやすいのはスマホ。画面幅320pxでGAPが1em(16px)なら、20ページを超えた時に生じる。
         // 別解：paddingを使う。column-gapをやめてpaddingを使う。ただしcolumn-countで分割された数だけ増える。column-gapを再現するなら手間がかかる。
     }
-    #setPadding(px) { document.querySelector('p:last-child').style.setProperty('padding-bottom', `${px}px`) }
+    #setPadding(px) { document.querySelector('p:last-child').style.setProperty('padding-end', `${px}px`) }
     /*
     #setBlankColumn() { // columnCount:2のとき偶数ページにする（右側に不足している空columnを追加する）
         if (1 === this.#count) { this.#setPadding(0); return; }
