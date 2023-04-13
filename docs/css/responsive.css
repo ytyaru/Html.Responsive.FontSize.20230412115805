@@ -28,6 +28,7 @@ main {
     column-count: var(--column-count);
     column-gap: var(--column-gap);
     column-rule-style: var(--column-rule-style);
+    inline-size: var(--inline-size);
     block-size: var(--block-size);
 }
 p {

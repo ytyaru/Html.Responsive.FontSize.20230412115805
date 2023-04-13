@@ -15,6 +15,7 @@ class FontSize {
         WritingMode.resetSize()
         this.#size = WritingMode.Size
         Column.calc(this.#size)
+        Page.calc(this.#size)
         //Css.set('--block-size', `${this.#size.client.block}px`)
         //const sideSize = [...document.querySelectorAll('header, footer')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
         const sideSize = [...document.querySelectorAll('header')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
@@ -60,6 +61,8 @@ class FontSize {
         document.getElementById('clientBlock').textContent = `${this.#size.client.block}`
         document.getElementById('scrollbarInline').textContent = `${this.#size.scrollbar.inline}`
         document.getElementById('scrollbarBlock').textContent = `${this.#size.scrollbar.block}`
+        document.getElementById('scrollInline').textContent = `${this.#size.scroll.inline}`
+        document.getElementById('scrollStart').textContent = `${this.#size.scroll.start}`
         /*
         document.getElementById('devicePixelRatio').textContent = `${parseInt(devicePixelRatio * 100)}%`
         document.getElementById('fontSize').textContent = `${parseInt(devicePixelRatio * 100)}%`
