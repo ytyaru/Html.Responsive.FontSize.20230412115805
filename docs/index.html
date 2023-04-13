@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/icon.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/writing-mode.css">
+<link rel="stylesheet" href="css/column.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/number.isrange.js"></script>
 <script src="js/css.js"></script>
@@ -21,8 +22,21 @@
 <body>
 <header>🏠ここはヘッダです</header>
 <main>
+    <h2>データ</h2>
     <label>writing-mode<select id="writing-mode"><option value="horizontal-tb">horizontal-tb</option><option value="vertical-rl">vertical-rl</option></select><label>
     <label>column-count<select id="column-count"><option value="1">1</option><option value="2">2</option></select><label>
+
+    <table>
+        <tr><th>devicePixelRatio</th><td id="devicePixelRatio" colspan="2"></td></tr>
+        <tr><th>fontSize</th><td id="fontSize" colspan="2"></td></tr>
+        <tr><th>screen</th><td id="screenInline"></td><td id="screenBlock"></td></tr>
+        <tr><th>avail</th><td id="availInline"></td><td id="availBlock"></td></tr>
+        <tr><th>outer</th><td id="outerInline"></td><td id="outerBlock"></td></tr>
+        <tr><th>inner</th><td id="innerInline"></td><td id="innerBlock"></td></tr>
+        <tr><th>client</th><td id="clientInline"></td><td id="clientBlock"></td></tr>
+        <tr><th>scrollbar</th><td id="scrollbarInline"></td><td id="scrollbarBlock"></td></tr>
+    </table>
+    <!--
     <table>
         <tr><th>devicePixelRatio</th><td id="devicePixelRatio"></td><th>fontSize</th><td id="fontSize"></td></tr>
         <tr><th>screenWidth</th><td id="screenWidth"></td><th>screenHeight</th><td id="screenHeight"></td></tr>
@@ -31,6 +45,9 @@
         <tr><th>innerWidth</th><td id="innerWidth"></td><th>innerHeight</th><td id="innerHeight"></td></tr>
         <tr><th>scrollbarWidth</th><td id="scrollbarWidth"></td><th>scrollbarHeight</th><td id="scrollbarHeight"></td></tr>
     </table>
+    -->
+    <h2>本文</h2>
+    <p>「あああ」</p>
     <p>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０</p>
     <p>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０</p>
     <p>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０</p>

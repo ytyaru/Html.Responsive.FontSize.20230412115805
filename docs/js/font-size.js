@@ -14,6 +14,12 @@ class FontSize {
     reset() {
         WritingMode.resetSize()
         this.#size = WritingMode.Size
+        //Css.set('--block-size', `${this.#size.client.block}px`)
+        //const sideSize = [...document.querySelectorAll('header, footer')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
+        const sideSize = [...document.querySelectorAll('header')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
+        Css.set('--block-size', `${this.#size.client.block - sideSize}px`)
+        /*
+        */
         this.setfontSize()
         this.#show()
     }
@@ -39,6 +45,21 @@ class FontSize {
     }
     #show() {
         document.getElementById('devicePixelRatio').textContent = `${parseInt(devicePixelRatio * 100)}%`
+        document.getElementById('fontSize').textContent = `${this.#fontSize}`
+        document.getElementById('screenInline').textContent = `${this.#size.screen.inline}`
+        document.getElementById('screenBlock').textContent = `${this.#size.screen.block}`
+        document.getElementById('availInline').textContent = `${this.#size.avail.inline}`
+        document.getElementById('availBlock').textContent = `${this.#size.avail.block}`
+        document.getElementById('outerInline').textContent = `${this.#size.outer.inline}`
+        document.getElementById('outerBlock').textContent = `${this.#size.outer.block}`
+        document.getElementById('innerInline').textContent = `${this.#size.inner.inline}`
+        document.getElementById('innerBlock').textContent = `${this.#size.inner.block}`
+        document.getElementById('clientInline').textContent = `${this.#size.client.inline}`
+        document.getElementById('clientBlock').textContent = `${this.#size.client.block}`
+        document.getElementById('scrollbarInline').textContent = `${this.#size.scrollbar.inline}`
+        document.getElementById('scrollbarBlock').textContent = `${this.#size.scrollbar.block}`
+        /*
+        document.getElementById('devicePixelRatio').textContent = `${parseInt(devicePixelRatio * 100)}%`
         document.getElementById('fontSize').textContent = `${parseInt(devicePixelRatio * 100)}%`
         document.getElementById('inlineSize').textContent = `${this.#inlineSize}`
         document.getElementById('blockSize').textContent = `${this.#blockSize}`
@@ -51,6 +72,7 @@ class FontSize {
         const inlineInnerSize = 
         document.getElementById('scrollbarWidth').textContent = `${window.innerWidth - document.body.clientWidth}`
         document.getElementById('scrollbarHeight').textContent = `${window.innerHeight - document.documentElement.clientHeight}`
+        */
     }
 }
 window.FontSize = new FontSize()

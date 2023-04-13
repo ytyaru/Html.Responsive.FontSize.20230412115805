@@ -1,5 +1,6 @@
 @charset "utf-8";
 :root {
+    /*--block-size: auto;*/
     --writing-mode: horizontal-tb;
     --text-orientation: unset;
     --text-decoration: underline;
@@ -14,3 +15,4 @@ body {
     -ms-text-combine-horizontal: all;
     -webkit-text-combine: horizontal;
 }
+

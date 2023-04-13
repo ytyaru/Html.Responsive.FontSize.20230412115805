@@ -1,0 +1,38 @@
+@charset "utf-8";
+:root {
+    --block-size: auto;
+    --column-count: 1; /* 1, 2 */
+    --column-gap: 1em;
+    --padding-inline-start: 0.0em;
+    --padding-inline-end: 0.0em;
+    --padding-block-start: 0;
+    --padding-block-end: 0;
+    --column-rule-style: dotted;
+}
+header, footer {
+    position: fixed;
+}
+/*
+*/
+main {
+    block-size: var(--block-size);
+    margin:0; padding:0;
+    column-count: var(--column-count);
+    column-gap: var(--column-gap);
+    column-rule-style: var(--column-rule-style);
+}
+h1,h2,h3,h4,h5,h6 {
+    /*
+    column-span: all;
+    */
+    /*
+    text-align: center;
+    break-before: all;
+    break-inside: avoid;
+    */
+    text-align: center;
+    break-inside: avoid;
+}
+p {
+    break-inside: avoid;
+}
