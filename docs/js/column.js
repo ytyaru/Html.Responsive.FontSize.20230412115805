@@ -7,11 +7,52 @@ class Column {
         this.#size = size
         console.log(size)
         this.#count = (size.client.inline < 1280) ? 1 : 2;
+        Css.set('--column-count', `${this.#count}`)
         this.#calcPage()
+        console.log(`Column count:${this.#count}, page:${this.#page}`)
         //this.#setBlankColumn()
     }
     get Count() { return this.#count; }
     get Page() { return this.#page; }
+    #calcPage() { // column-gapなしで計算すればいい
+        const GAP = Css.get('--column-gap')
+        Css.set('--column-gap', `0em`)
+        WritingMode.resetSize()
+        this.#calcPageNum()
+        Css.set('--column-gap', GAP)
+        WritingMode.resetSize()
+    }
+    #calcPageNum() {
+        this.#page = Math.ceil(this.#size.scroll.inline / this.#size.client.inline)
+        if (1===this.#count) { this.#setPadding(0); return; }
+        const diff = Math.abs(this.#size.scroll.inline - (this.#page * this.#size.client.inline))
+        //console.log(diff, this.#size.scroll.inline, (prePageSize + preGapSize), prePageSize, preGapSize, GAP)
+        console.log(diff, this.#size.scroll.inline, (this.#page * this.#size.client.inline))
+        if (diff < 5) { this.#setPadding(0); return; }
+        else if (diff < this.#size.client.inline) {
+            const addBlankColNum = Math.ceil(diff / (this.#size.client.inline / this.#count))
+            this.#setPadding(addBlankColNum * this.#size.client.block)
+            console.log('addNewPageNum:', addBlankColNum, addBlankColNum * this.#size.client.block)
+            this.#setPadding(addBlankColNum * this.#size.client.block)
+            document.querySelector('p:last-child').style.setProperty('title', `最後だよ`)
+            document.querySelector('p:last-child').style.setProperty('padding-end', `${addBlankColNum * this.#size.client.block}px`)
+            console.log(document.querySelector('p:last-child'))
+            console.log(Css.get('padding-end', document.querySelector('p:last-child')))
+        } else { throw new Error('計算おかしいと思う') }
+    }
+    // padding-endが機能しない。たぶんJS APIのバグ
+    //#setPadding(px) { document.querySelector('p:last-child').style.setProperty('padding-end', `${px}px`) }
+    //#setPadding(px) { document.querySelector('p:last-child').style.setProperty(`padding-${(WritingMode.isHorizontal()) ? 'bottom' : 'right'}`, `${px}px`) }
+    #setPadding(px) {
+        if (WritingMode.isHorizontal()) {
+            document.querySelector('p:last-child').style.setProperty(`padding-bottom`, `${px}px`)
+            document.querySelector('p:last-child').style.setProperty(`padding-right`, `0px`)
+        } else {
+            document.querySelector('p:last-child').style.setProperty(`padding-bottom`, `0px`)
+            document.querySelector('p:last-child').style.setProperty(`padding-right`, `${px}px`)
+        }
+    }
+    /*
     #calcPage() {
         console.log(this.#size)
         const prePage = this.#size.scroll.inline / this.#size.client.inline
@@ -37,6 +78,7 @@ class Column {
         // 別解：paddingを使う。column-gapをやめてpaddingを使う。ただしcolumn-countで分割された数だけ増える。column-gapを再現するなら手間がかかる。
     }
     #setPadding(px) { document.querySelector('p:last-child').style.setProperty('padding-end', `${px}px`) }
+    */
     /*
     #setBlankColumn() { // columnCount:2のとき偶数ページにする（右側に不足している空columnを追加する）
         if (1 === this.#count) { this.#setPadding(0); return; }

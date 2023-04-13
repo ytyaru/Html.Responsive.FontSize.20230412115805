@@ -24,10 +24,11 @@ class WritingMode {
         if (this.#isValid(v) && this.#isChange(v)) {
             this.#mode = v
             switch(v) {
-                case 'horizontal-tb': return this.#setHorizontal();
-                case 'vertical-rl': return this.#setVertical();
+                case 'horizontal-tb': this.#setHorizontal(); break;
+                case 'vertical-rl': this.#setVertical(); break;
                 default: return;
             }
+            this.resetSize()
         }
     }
     resetSize() {
