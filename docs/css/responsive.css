@@ -1,7 +1,7 @@
 @charset "utf-8";
 :root {
-    --block-size: auto;
     /*
+    --block-size: auto;
     --column-count: 1;
     --column-gap: 1em;
     --padding-inline-start: 0.0em;

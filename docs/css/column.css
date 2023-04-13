@@ -20,6 +20,7 @@ main {
     column-count: var(--column-count);
     column-gap: var(--column-gap);
     column-rule-style: var(--column-rule-style);
+
 }
 h1,h2,h3,h4,h5,h6 {
     /*
@@ -36,3 +37,4 @@ h1,h2,h3,h4,h5,h6 {
 p {
     break-inside: avoid;
 }
+

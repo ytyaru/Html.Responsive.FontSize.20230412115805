@@ -10,21 +10,17 @@ class WritingMode {
             inner: { inline:0, block:0 },  // ブラウザ内周
             client: { inline:0, block:0 }, // ブラウザ内の表示領域（スクロールバー除く）
             scrollbar: { inline:0, block:0 }, // スクロールバー
+            scroll: { inline:0 },
         }
         this.Modes= Object.freeze({
             Horizontal: 'horizontal-tb',
             Vertical: 'vertical-rl',
         })
-        console.log(this.#getModeValues())
-        console.log(this.#getModeValues().includes('a'))
-
         this.Mode = this.Modes.Horizontal
     }
-    show() { console.log('mode:', this.#mode); console.log('size:', this.#size); }
     get Size() { return Object.freeze(this.#deepCopy(this.#size)) }
     get Mode() { return this.#mode }
     set Mode(v) {
-        console.log(v)
         if (this.#isValid(v) && this.#isChange(v)) {
             this.#mode = v
             switch(v) {
@@ -71,6 +67,7 @@ class WritingMode {
         this.#size.client.block = document.documentElement.clientHeight;
         this.#size.scrollbar.inline = this.#size.inner.inline - this.#size.client.inline;
         this.#size.scrollbar.block = this.#size.inner.block - this.#size.client.block;
+        this.#size.scroll.inline = document.documentElement.scrollWidth
     }
     #setSizeVertical() {
         this.#size.screen.inline = screen.height;
@@ -85,6 +82,7 @@ class WritingMode {
         this.#size.client.block = document.documentElement.clientWidth;
         this.#size.scrollbar.inline = this.#size.inner.inline - this.#size.client.inline;
         this.#size.scrollbar.block = this.#size.inner.block - this.#size.client.block;
+        this.#size.scroll.inline = document.documentElement.scrollHeight
     }
     /*
     valid(id) { const v = Object.keys(this.Modes).map(k=>this.Modes[k]).includes(id); if (!v) {throw new Error('writing-modeはhorizontal-tbかvertical-rlのどちらかにしてください。')} return v;  }

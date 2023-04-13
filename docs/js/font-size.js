@@ -14,6 +14,7 @@ class FontSize {
     reset() {
         WritingMode.resetSize()
         this.#size = WritingMode.Size
+        Column.calc(this.#size)
         //Css.set('--block-size', `${this.#size.client.block}px`)
         //const sideSize = [...document.querySelectorAll('header, footer')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
         const sideSize = [...document.querySelectorAll('header')].map(el=>Css.getFloat('block-size', el)).reduce((sum, v)=>sum+v, 0)
@@ -46,6 +47,7 @@ class FontSize {
     #show() {
         document.getElementById('devicePixelRatio').textContent = `${parseInt(devicePixelRatio * 100)}%`
         document.getElementById('fontSize').textContent = `${this.#fontSize}`
+        document.getElementById('page').textContent = `${Column.Page}`
         document.getElementById('screenInline').textContent = `${this.#size.screen.inline}`
         document.getElementById('screenBlock').textContent = `${this.#size.screen.block}`
         document.getElementById('availInline').textContent = `${this.#size.avail.inline}`
