@@ -12,6 +12,9 @@ class Html {
     setText(q, v) { this.get(q)[(v.hasNewline() ? 'innerText' : 'textContent')] = v }
     getAttr(q, k) { this.get(q).getAttribute(k) }
     setAttr(q, k, v) { this.get(q).setAttribute(k, v) }
+    getDom(o) {
+        
+    }
     isDom(o) {
         try { return obj instanceof HTMLElement; }
         catch(e){
