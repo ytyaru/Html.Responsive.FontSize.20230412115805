@@ -1,6 +1,6 @@
 (function() {
 class Html {
-    get(q) { return document.querySelector(q) }
+    get(o) { return (Type.isDom(o) ? o : (Type.isString(o)) ? document.querySelector(q) : throw new TypeError('引数はDOMかCSSセレクタ文字列にしてください')) }
     gets(q) { return [...document.querySelectorAll(q)] }
     get Root() { return this.get(':root') }
     get Head() { return this.get('head') }
@@ -8,30 +8,16 @@ class Html {
     get Main() { return this.get('main') }
     get Header() { return this.get('header') }
     get Footer() { return this.get('footer') }
-    setHtml(q, v) { this.get(q).innerHTML = v }
-    setText(q, v) { this.get(q)[(v.hasNewline() ? 'innerText' : 'textContent')] = v }
-    getAttr(q, k) { this.get(q).getAttribute(k) }
-    setAttr(q, k, v) { this.get(q).setAttribute(k, v) }
-    getDom(o) {
-        
-    }
-    isDom(o) {
-        try { return obj instanceof HTMLElement; }
-        catch(e){
-            return (typeof obj==="object") &&
-                (obj.nodeType===1) && (typeof obj.style === "object") &&
-                (typeof obj.ownerDocument ==="object");
-        }
-    }
-    /*
-    setText(q, v) { this.get(q).innerText = v }
-    setContent(q, v) { if (v.hasNewline()) { this.get(q).innerText = v } else {  }
-    hasNewline(v) { return ["\r\n", "\n", "\r"].map(nl=>v.indexOf(nl)).some(b=>b) }
-        if (v.indexOf("\r\n")>-1) { return true }
-        else if (v.indexOf("\n")>-1) { return true }
-        else if (v.indexOf("\r")>-1) { return true }
-        else { return false }
-    */
+    getHtml(o) { return this.get(o).innerHTML }
+    getText(o) { return this.get(o).innerText } // 改行コードはinnerHTMLで<br>に変わる
+    //getText(o) { return this.get(o).textContent} // 改行コードはinnerHTMLで改行コードのまま
+    setHtml(o, v) { this.get(o).innerHTML = v }
+    //setText(o, v) { this.get(o).textContent = v }
+    setText(o, v) { this.get(o)[(v.hasNewline() ? 'innerText' : 'textContent')] = v }
+    getAttr(o, k) { return this.get(o).getAttribute(k) }
+    getAttrInt(o, k) { return parseInt(this.getAttr(o, k)) }
+    getAttrFloat(o, k) { return parseFloat(this.getAttr(o, k)) }
+    setAttr(o, k, v) { this.get(o).setAttribute(k, v) }
 }
 window.Html = new Html()
 })()
