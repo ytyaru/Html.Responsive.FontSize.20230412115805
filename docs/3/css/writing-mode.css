@@ -1,0 +1,32 @@
+@charset "utf-8";
+:root {
+    --inline-size: auto;
+    --block-size: auto;
+    --writing-mode: horizontal-tb;
+    --text-orientation: unset;
+    --text-decoration: underline;
+    --scroll-snap-type-dir: x;
+    --overflow-x: scroll;
+    --overflow-y: hidden;
+}
+body {
+    writing-mode: var(--writing-mode);
+    text-orientation: var(--text-orientation);
+    text-decoration: var(--text-orientation);
+}
+main {
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    scroll-snap-type: var(--scroll-snap-type-dir) mandatory;
+    overflow-x: var(--overflow-x);
+    overflow-y: var(--overflow-y);
+}
+p,h1,h2,h3,h4,h5,h6 {
+    scroll-snap-align: start;
+}
+.text-combine { /* 縦中横 */
+    text-combine-upright: all;
+    -ms-text-combine-horizontal: all;
+    -webkit-text-combine: horizontal;
+}
+
