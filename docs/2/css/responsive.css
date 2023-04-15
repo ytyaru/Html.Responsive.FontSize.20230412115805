@@ -1,0 +1,38 @@
+@charset "utf-8";
+:root {
+    /*
+    --block-size: auto;
+    --column-count: 1;
+    --column-gap: 1em;
+    --padding-inline-start: 0.0em;
+    --padding-inline-end: 0.0em;
+    --padding-block-start: 0;
+    --padding-block-end: 0;
+    */
+    /*--line-of-chars: 40;*/ /* 35, 40, 45 */
+    --font-size: 16px;
+    --letter-spacing: 0.05em;
+    --line-height: 1.7em;
+    /*--column-rule-style: dotted;*/
+}
+body {
+    margin:0; padding:0;
+}
+body, input, select, textarea {
+    font-size: var(--font-size);
+    letter-spacing: var(--letter-spacing);
+    line-height: var(--line-height);
+}
+main {
+    margin:0; padding:0;
+    column-count: var(--column-count);
+    column-gap: var(--column-gap);
+    column-rule-style: var(--column-rule-style);
+}
+p {
+    padding-inline-start: var(--padding-inline-start);
+    padding-inline-end: var(--padding-inline-end);
+    padding-block-start: var(--padding-block-start);
+    padding-block-end: var(--padding-block-end);
+}
+
