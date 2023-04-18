@@ -33,6 +33,84 @@ https://domain.com/why-what-how.html
 `id`|`int`|
 `name`|`string`|著者名（`<meta name="author">`）
 
+```sql
+create table authors(
+  id integer primary key not null,
+  
+);
+```
+```sql
+create table if not exists ${tableName} (
+  ${名} ${型} ${制約},
+);
+```
+
+* DB名
+	* テーブル名
+		* 列名、型、制約
+
+```
+db-list
+拡張子（`db`,`sqlite3`）
+DBリスト
+	DB名
+	…
+	DB名
+DB名（ファイル名）
+	テーブル名
+	…
+	テーブル名
+テーブル名
+	列名	型名	制約
+	制約名　制約
+```
+```
+table-list
+拡張子（`db`,`sqlite3`）
+DB名（ファイル名）
+	テーブル名
+	…
+	テーブル名
+テーブル名
+	列名	型名	制約
+	制約名　制約
+```
+
+最小|略|SQLite3
+----|--|-------
+`p`|`pk`|`integer primary key not null`|主キー
+`i`|`int`|`integer`|整数値
+`r`|`real`|`real`|浮動少数
+`t`|`text`|`text`|テキスト
+`b`|`blob`|`blob`|バイナリ
+
+最小|略|SQLite3
+----|--|-------
+`B`|`bool`|`integer check(0=列名 or 1=列名)`
+`R`|`range`|`integer check(最小値<=列名 and 列名<=最大値)`
+`D`|`date`|`text check(regexp('パターン',列名))`
+
+制約|概要
+----|----
+`foreign key`|指定されたマスターテーブルに存在する値のみセット可
+`primary key`|この表内で一意の整数値のみセット可
+`unique`|この表内で一意の値のみセット可
+`not null`|この列は`NULL`以外のみセット可
+`default`|この列は値が省略されたら指定した値になる
+`check`|この列は指定した条件式が真のときのみセット可
+
+```
+年-月-日( 時:分:秒)?
+[0-9]{1,}-[0-9]{2,}-[0-9]{2,}([\s][0-9]{2}:[0-9]{2}:[0-9]{2})?
+\d{1,}-\d{2,}-\d{2,}([\s]\d{2}:\d{2}:\d{2})?
+```
+```
+default CURRENT_TIMESTAMP（UTC）
+```
+```
+SELECT strftime('%y-%m-%d %H:%M:%S', CURRENT_TIMESTAMP, 'localtime');
+```
+
 ## works
 
 　作品。
@@ -40,24 +118,282 @@ https://domain.com/why-what-how.html
 列|型|概要
 --|--|----
 `id`|`int`|
-`name`|`string`|作品名。作品タイトル（100字。副題は`: `で区切る）
+`title`|`string`|作品名。作品タイトル（100字。副題は`: `で区切る？）
 `catch`|`string`|キャッチコピー（35字）
+`synopsis`|`text`|あらすじ（800字（400字以降は`<!--more-->`））
 `description`|`string`|説明文（80字`<meta name="description">`）
+`synopsis`|`text`|あらすじ（800字（400字以降は`<!--more-->`））
 `intro`|`string`|紹介文（800字（400字以降は`<!--more-->`））
 
 ## episodes
 
-　一話分の本文。
+　挿話。一話分の本文。一つの作品は複数の挿話で成立している。
 
 列|型|概要
 --|--|----
 `id`|`int`|
-`name`|`string`|
+`wid`|`int`|`works.id`。どの作品の挿話か
+`seq`|`int`|表示する順番
 `created`|`datetime`|
 `published`|`datetime`|
 `updated`|`datetime`|
 `chars`|`int`|文字数
 `content`|`string`|
+
+　挿話のタイトルは作品によってある場合とない場合がある。そこで別テーブル`chapters`で管理する。
+
+　`id`があるのに`seq`を作る理由は二つある。編集性・参照性を高めるためだ。
+　`seq`があると編集性が高まる。挿話の順序をあとから自由に変更できる。たとえば途中で挿話の順序を入れ替えたり、別の挿話をはさみたくなったときに便利だ。新しいレコードを作成して、はさみたい位置に`seq`をあわせ、それ以降にある既存の挿話の`seq`をインクリメントすればいい。
+　`seq`があると参照性も高まる。`seq`は作品ごとに`1`からはじまる。これはそのままURLになる。URLを見れば今何話目かわかる。URLの`seq`値をいじれば、指定した話数を閲覧できる。
+
+　`id`は全作品共通のため、作品中で連番になるとは限らない。もし別作品を同時に書いて一話ずつ更新すれば、それぞれ次の話を書くときは`2`ずつ`id`が増えることになる。よって同一作品における話の順序は`id`でなく`seq`を用いる。
+
+* 全作品の集計を取得する
+* 全作品の一覧を取得する
+* ある作品の集計を取得する
+* ある作品の目次を取得する
+
+
+* 全作品の集計を取得する（作品数、総字数、最終更新日時）
+
+```sql
+select count(*) works, sum(e.chars) chars, max(e.updated) updated
+from works w
+inner join episodes e
+on w.id=e.wid
+group by e.wid
+```
+
+* 全作品の一覧を取得する
+
+```sql
+select
+ w.title title,
+ w.catch catch,
+ substr(w.intro,0,79) intro,
+ max(e.updated) updated,
+ sum(e.chars) chars
+from
+ works w
+inner join
+ episodes e
+on
+ w.id=e.wid
+group by
+ e.wid
+order by
+ max(e.updated) asc,
+ sum(e.chars) desc,
+```
+
+* ある作品の集計を取得する
+
+```sql
+select count(*) works, sum(e.chars) chars, max(e.updated) updated
+from works w
+inner join episodes e
+on w.id=e.wid
+group by e.wid
+where w.id=ある作品のID
+```
+
+* ある作品の目次を取得する
+
+```
+select e.seq, w.title
+from works w
+inner join episodes e
+on w.id=e.wid
+oder by e.seq asc
+where w.id=ある作品のID;
+```
+
+```
+select count(*) episodes, e.seq, e.title 
+from works w 
+inner join episodes e on w.id=e.wid 
+inner join chapters c on w.id=c.wid and e.id=c.eid 
+oder by e.seq asc 
+where w.id=ある作品のID;
+```
+
+　部、章の階層があるときはどうするか。
+
+```
+select count(*) episodes, e.seq, e.title 
+from works w 
+inner join episodes e on w.id=e.wid 
+inner join chapters c on w.id=c.wid and e.id=c.eid 
+oder by e.seq asc 
+where w.id=ある作品のID;
+```
+## chapters
+
+　章。作品によっては挿話ごとにタイトルがあったり無かったり、章や部でツリー構造になっていたりする。それらの違いを定義する。
+
+列|型|概要
+--|--|----
+`id`|`int`|
+`wid`|`int`|作品ID
+`eid`|`int`|挿話ID
+`inc`|`int`|`0`:話数をインクリメントする（デフォルト）。`1`:章数をインクリメントする。
+`title`|`string`|タイトル
+
+* タイトル（話、章、部のタイトル）
+* 位置（話、章、部の数）
+
+列|型|概要
+--|--|----
+`id`|`int`|
+`wid`|`int`|作品ID
+`eid`|`int`|挿話ID
+`level`|`int`|インクリメントする構造レベル（話`0`、章`1`、部`2`）
+`title`|`string`|
+
+列|型|概要
+--|--|----
+`id`|`int`|
+`wid`|`int`|作品ID
+`seq`|`int`|挿話順
+`level`|`int`|インクリメントする構造レベル（話`0`、章`1`、部`2`）
+`title`|`string`|
+
+* ある挿話`seq`を堺にして話数がインクリメントされる（デフォルトではこれ。一話ずつインクリメントする）
+* ある挿話`seq`を堺にして章数がインクリメントされる（このとき話・章タイトルの２つを定義するため２レコード必要）
+* ある挿話`seq`を堺にして部数がインクリメントされる（このとき話・章・部タイトルの３つを定義するため３レコード必要）
+
+```sql
+insert into chapters(0,0,0,0);
+insert into chapters(0,0,0,0,'第一話○○');
+insert into chapters(0,0,0,1,'第一章○○');
+insert into chapters(0,0,0,2,'第一部○○');
+```
+
+　ある挿話順における部・章・話タイトルを取得する。（1〜3レコード）
+
+```sql
+select id, title
+from chapters
+where wid=ある作品ID and seq=ある挿話順;
+order by seq asc, level desc
+```
+
+　ある挿話順における部・章・話は何番目か。
+
+```sql
+select count(*) 
+from chapters 
+where wid=ある作品ID and seq=ある挿話順 and level=(0 or 1 or 2);
+```
+
+　ある作品における部数はいくつあるか。
+
+```sql
+select count(*) part_count
+from chapters
+where wid=ある作品ID and level=2;
+```
+
+　ある作品における部タイトル一覧。
+
+```sql
+select title part_title
+from chapters
+where wid=ある作品ID and level=2;
+order by seq asc
+```
+
+　ある作品における章数はいくつあるか。
+
+```sql
+select count(*) chapter_count
+from chapters
+where wid=ある作品ID and level=1;
+```
+
+　ある作品における章タイトル一覧。
+
+```sql
+select title chapter_title
+from chapters
+where wid=ある作品ID and level=1;
+order by seq asc
+```
+
+　ある作品における話数はいくつあるか。
+
+```sql
+select count(*) episode_count
+from chapters
+where wid=ある作品ID and level=0;
+```
+
+　ある作品における話タイトル一覧。
+
+```sql
+select title episode_title
+from chapters
+where wid=ある作品ID and level=0;
+order by seq asc
+```
+
+　どう見せるか。
+
+* 作品数
+* 作品タイトル
+* 部数
+* 部タイトル
+* 章数
+* 章タイトル
+* 話数
+* 話タイトル
+
+作数|作名|部数|部名|章数|章名|話数|話名
+----|----|----|----|----|----|----|----
+○|○|○|○|○|○|○|○|`<title>作名 - サイト名</title><h1>作数．作名<p>副題</p></h1><h2>部数．部名</h2><h3>部数．部名</h3><h4>部数．部名</h4>`
+
+* 扉ページ：一画面全体でタイトルをみせる
+* 見出し：本文の開始部分として少し目立つ形で見せる
+
+* 作品一覧
+* 作品概要
+* 作品一ページ目
+
+* 作品一覧
+	* 作品名（100字）
+	* キャッチコピー(35)
+	* 字数
+	* あらすじ（〜100字）
+* 作品概要
+	* 作品名
+	* キャッチコピー
+	* 字数
+	* あらすじ（〜800字）
+	* 目次
+		* 部、章、話
+* 作品一ページ目
+	* 部：扉ページ
+	* 章：見出し大
+	* 話：見出し小
+
+話数|話タイ|章数|章タイ|部数|部タイ|例
+----|------|----|------|----|------|--
+✖|✖|✖|✖|✖|✖|（`<h1>`〜`<h6>`）
+
+* 話数なし章なし
+* 話タイトルなし章なし
+* 話タイトルあり章なし
+* 章なし
+* 章あり
+
+### 章なし
+
+* 1話（タイトルなし）
+* 2話（タイトルなし）
+* N話（タイトルなし）
+
+### 
+
 
 * エピソード＝2〜4千字程度の文章
 * エピソード間の関係
@@ -255,9 +591,13 @@ https:/domain.com/works/work-id/episodes/episodes-id-p.html
 public
 ```
 author
-	monacoin.address
-	github.username
-	mastodon.instance.username
+	name
+	address
+		tel
+		email
+		monacoin.address
+		github.username
+		mastodon.instance.username
 works
 	title
 	pitch
@@ -274,8 +614,9 @@ works
 private
 ```
 author
-	github.username.access-token
-	mastodon.instance.username.access-token
+	address
+		github.username.access-token
+		mastodon.instance.username.access-token
 ```
 
 * メリット
@@ -351,6 +692,7 @@ author
 * ピッチ（売り文句）
 * フック（つかみ。モチーフ）
 * ログライン（誰が、何をして、どう変わるか）
+* シノプシス（あらすじ。ネタバレ込み。プロット。ストーリーライン。シナリオ。）
 * セントラル・クエスチョン（CQ。作品の主題。主人公の目的。読者への問いかけ。敵に勝てるか。生き残れるか等）
 * 三幕構成
 	* 一幕　アクト1（1-25%。セットアップ　　設定（人物紹介・事件発生））
@@ -590,6 +932,104 @@ SAO
 ・主人公は生き残れるか
 
 
-# 
+
+# エディタ
+
+🏠🏷🔖🔗🔰👁👄👂👆👍👎👣👥🗣💌💢💡💤💥💦💧💩💬🗨️💭🗨🗯💰💯💻📱🖥⌨🖱️🖨️📅📆📋📈📉📊📌📍📎📏📐📝📞📢📣📤📥📦📧📨📩📰🚫🛡🧭🧪🧲
+
+著者👤
+作品📕📖📗📘📙📚🗄️
+挿話📄✏
+章立§¶≔≡︙…‖🌲
+
+## 著者エディタ
+
+👤著者名               [                  ]
+🌐
+🐈モナコインアドレス   [                  ]
+🐘Mastodon instance    [                  ]
+🐘Mastodon username    [                  ]
+🐙Github   username    [                  ]
+🐙Github   accessToken [                  ]
+[追加]
+
+一覧
+名前
+…
+名前
+
+## 作品
+
+👤著者 [                  ]
+作品名 [                  ]
+コピー [                  ]
+ログライン [                  ]
+シノプシス [                  ]
+フック [                  ]
+セントラル・クエスチョン [                  ]
+説明 [                  ]
+[新規作成]
+
+一覧
+👤著者　☑完結済み　📕作品名
+
+## 挿話
+
+👤著者📕作品名§章立
+
+　　　　原本　　　　　プレビュー
+┌───────┐┌───────┐
+│　　　　　　　││　　　　　　　│
+└───────┘└───────┘
+[追加／更新]
+
+## 章立
+
+   章 部
+ 1 ☐ ☑ [話タイトル] [章タイトル] [部タイトル]
+ 2 ☐ ☐ [話タイトル]
+ 3 ☐ ☐ [話タイトル]
+ 4 ☐ ☐ [話タイトル]
+ 5 ☐ ☐ [話タイトル]
+ 6 ☑ ☐ [話タイトル] [章タイトル]
+ 7 ☐ ☐ [話タイトル]
+ 8 ☐ ☐ [話タイトル]
+ 9 ☐ ☐ [話タイトル]
+10 ☐ ☐ [話タイトル]
+11 ☐ ☐ [話タイトル]
+12 ☐ ☑ [話タイトル] [章タイトル] [部タイトル]
+13 ☐ ☐ [話タイトル]
+
+* 位置を変更できる
+
+### 話間の前後を確認したい
+
+[1　　▼]
+N話　N章　N部
+
+前話の末尾
+```
+　　▲
+　　■
+　　▼
+```
+今話の先頭
+```
+　　▲
+　　■
+　　▼
+```
+今話の末尾
+```
+　　▲
+　　■
+　　▼
+```
+次話の先頭
+```
+　　▲
+　　■
+　　▼
+```
 
 
