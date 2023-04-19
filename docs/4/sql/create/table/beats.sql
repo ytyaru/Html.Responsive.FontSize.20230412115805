@@ -22,7 +22,7 @@ create table beats {
     all_is_lost text not null default '' check(0<=length() and length()<=100), -- すべてを失って 70%
     dark_night_of_the_soul text not null default '' check(0<=length() and length()<=100), -- 心の暗闇 70-80%
     break_into_three text not null default '' check(0<=length() and length()<=100), -- ターニングポイント２ 80%
-    finale text not null default '' check(0<=length() and length()<=100), -- フィナーレ 80-100%
+    finale text not null default '' check(0<=length() and length()<=100), -- フィナーレ 80-100% (Gather the team（チームをまとめる）,Execute the plan（計画を実行する）,High tower surprise（思わぬ障害）,Dig deep down（深く掘り下げ自分の中に眠る答えを見つける。テーマを学んだ証明）,Execute a new plan（新計画の実行）)
     final_image text not null default '' check(0<=length() and length()<=100), -- ファイナル・イメージ 100%
     unique(wid, seq, level)
 }
