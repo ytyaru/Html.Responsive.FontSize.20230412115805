@@ -31,7 +31,7 @@
 </head>
 <body>
 <h1>Work summary</h1>
-<div style="display:grid;grid-template-columns:1fr 1fr;"><!--他5つ,あらすじ-->
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);"><!--他5つ,あらすじ-->
 <!--<div style="display:grid;grid-template-columns:auto auto;">--><!--項目名,input-->
 <div><!--項目名,input-->
 <div style="float:left;display:grid;grid-template-rows:1fr 1fr 1fr 1fr 1fr;grid-auto-columns:auto;">
@@ -41,7 +41,8 @@
 <span title="Central Question">CQ</span>
 <span title="ログライン">Logline</span>
 </div>
-<div style="display:grid;grid-template-rows:1fr 1fr 1fr 1fr 1fr;grid-auto-columns:auto;">
+<!--<div style="display:grid;grid-template-rows:1fr 1fr 1fr 1fr 1fr;grid-auto-columns:auto;">-->
+<div style="display:grid;grid-template-rows:repeat(5, 1fr);grid-auto-columns:auto;">
 <label><input type="text" name="title" placeholder="作品タイトル"></label>
 <label><input type="text" name="theme" placeholder="テーマ"></label>
 <label><input type="text" name="hook" placeholder="ツカミ。お約束展開。Fun & Games"></label>
@@ -58,7 +59,68 @@
 <label><input type="text" name="logline" placeholder="誰が、何して、どう変わるか"></label>
 <label><textarea name="synopsis" placeholder="あらすじ"></textarea></label>
 -->
-<h2></h2>
+
+
+
+<h2>Beat sheet</h2>
+<div style="display:grid;grid-template-rows:repeat(4, 1fr);grid-auto-columns:100%;">
+<div style="display:grid;grid-template-columns:1fr 1fr 2fr 1fr 1fr;"><!--1行目 OI,T,Sx2,C,D-->
+<section class="pink"><h3>Opening image</h3><textarea name="opening-image" placeholder=""></textarea></section>
+<section class="pink"><h3>Theme stated</h3><textarea name="theme-stated" placeholder=""></textarea></section>
+<section class="pink"><h3>Setup</h3><div class="trisection"><textarea name="setup-home" placeholder=""></textarea><textarea name="setup-work" placeholder=""></textarea><textarea name="setup-play" placeholder=""></textarea></div></section>
+<section class="pink"><h3>Catalyst</h3><textarea name="catalyst" placeholder=""></textarea></section>
+<section class="yellow"><h3>Debate</h3><div class="trisection"><textarea name="debate-home" placeholder=""></textarea><textarea name="debate-work" placeholder=""></textarea><textarea name="debate-play" placeholder=""></textarea></div></section>
+</div>
+<div style="display:grid;grid-template-columns:repeat(6, 1fr);"><!--2行目 B2,BS-FG,MP,BC,AL,DS-->
+<div style="float:top; margin:0; padding:0;"><br>
+<section class="green"><h3>Break into 2</h3><label><input type="text" name="heros-want" placeholder=""></label><br><label><input type="text" name="heros-want-problem" placeholder=""></label><br><textarea name="break-into-two" placeholder=""></textarea></section>
+</div>
+<div style="display:grid;grid-template-rows:repeat(2, 1fr);grid-auto-columns:100%;">
+<section class="blue"><h3>B story</h3><textarea name="b-story" placeholder=""></textarea></section>
+<section class="green"><h3>Fun & Games</h3><textarea name="fun-and-games" placeholder=""></textarea></section>
+</div>
+<section class="green"><h3>Midpoint</h3>
+<label><input type="radio" name="midpoint-is-false-victory" value="false-victory" placeholder=""></label>
+<label><input type="radio" name="midpoint-is-false-victory" value="false-defert" placeholder=""></label><br>
+<textarea name="midpoint" placeholder=""></textarea></section>
+<section class="green"><h3>Bad guys close</h3>
+<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-despire" placeholder=""></label>
+<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-hope" placeholder=""></label><br>
+<textarea name="bad-guys-close" placeholder=""></textarea>
+</section>
+<section class="green"><h3>All is lost</h3><textarea name="all-is-lost" placeholder=""></textarea></section>
+<section class="yellow"><h3>Dark night of the soul</h3><div class="trisection">
+<textarea name="dark-night-of-the-soul-home" placeholder=""></textarea>
+<textarea name="dark-night-of-the-soul-work" placeholder=""></textarea>
+<textarea name="dark-night-of-the-soul-play" placeholder=""></textarea></div>
+</section>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;"><!--3行目 B3x2,GT,SC,HS,DD-->
+<section><h3>Break into 3</h3><div style="float:top;">
+<label><input type="text" name="hero_need" placeholder=""></label>
+<textarea name="break_into_three" placeholder=""></textarea></div>
+</section>
+<section><h3>Gather the team</h3>
+<label><input type="radio" name="is-theam-assembles" value="theam-assembles" placeholder=""></label>
+<label><input type="radio" name="is-theam-assembles" value="theam-abandons-hero" placeholder=""></label><br>
+<textarea name="gather-the-team" placeholder=""></textarea></section>
+<section><h3>Storming the castle</h3>
+<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-despire" placeholder=""></label>
+<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-hope" placeholder=""></label><br>
+<textarea name="storming-the-castle" placeholder=""></textarea></section>
+<section><h3>Hightower surprise</h3></section><textarea name="hightower-surprise" placeholder=""></textarea>
+<section><h3>Dig deep down</h3></section><textarea name="dig-deep-down" placeholder=""></textarea>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3, 1fr);"><!--4行目 EPx2,FIx2,Blankx2-->
+<section><h3>Execute new plan</h3></section><textarea name="execute-new-plan" placeholder=""></textarea>
+<section><h3>Final image</h3>
+<label><input type="radio" name="is-changed-hero" value="hero-is-changed" placeholder=""></label>
+<label><input type="radio" name="is-changed-hero" value="hero-rejects-change" placeholder=""></label><br>
+<textarea name="final_image" placeholder=""></textarea></section>
+<div></div>
+</div>
+</div>
+
 <h2>Beat sheet</h2>
 <table><!--5,6,5,2-->
 <tr>

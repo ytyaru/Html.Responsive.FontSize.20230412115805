@@ -14,8 +14,8 @@ textarea[name$="-home"], textarea[name$="-work"], textarea[name$="-play"] {
 */
 .trisection {
     display: grid;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 100%;
+    grid-template-columns: repeat(3, 1fr);
     padding:0; margin:0;
 }
 /*
@@ -25,11 +25,18 @@ textarea[name$="-home"], textarea[name$="-work"], textarea[name$="-play"] {
 .blue { background: #00aaee; }
 .orange { background: #ff7836 }
 */
+/*
 .pink { background: #ffaba1; }
 .yellow { background: #d3c400; }
 .green { background: #83d632; }
 .blue { background: #78caff; }
 .orange { background: #ffb22c; }
+*/
+.pink { background: #ffa5be; }
+.yellow { background: #d4c665; }
+.green { background: #7fdba2; }
+.blue { background: #5bd5fb; }
+.orange { background: #fcb170; }
 
 
 
