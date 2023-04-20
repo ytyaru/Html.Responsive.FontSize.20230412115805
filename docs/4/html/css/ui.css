@@ -1,0 +1,16 @@
+@charset "utf-8";
+div { padding:0; margin:0; }
+textarea {
+    width: 100%;
+    height: 100%;
+}
+/*
+textarea[name$="-home"], textarea[name$="-work"], textarea[name$="-play"] {
+    width: 33%;
+}
+*/
+.trisection {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
