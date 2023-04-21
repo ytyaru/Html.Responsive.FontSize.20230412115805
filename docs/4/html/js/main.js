@@ -11,7 +11,23 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     for (let el of document.querySelectorAll(`input[type=text], textarea, select, button`)) {
         el.setAttribute('placeholder', trans.placeholder[el.name])
     }
-
+    // 連動ラジオボタン
+    const interactions = {
+        'false-victory': 'bad-guys-close-despire',
+        'false-defert': 'bad-guys-close-hope',
+        'theam-assembles': 'storming-the-castle-despire',
+        'theam-abandons-hero': 'storming-the-castle-hope'
+    }
+    for (let key of Object.keys(interactions)) {
+        const value = interactions[key]
+        const senders = [key, value].map(v=>`input[type=radio][value="${v}"]`)
+        const receivers = senders.slice().reverse()
+        for (let i=0; i<2; i++) {
+            document.querySelector(senders[i]).addEventListener('change', (e) => {
+                document.querySelector(receivers[i]).checked = true
+            })
+        }
+    }
     /*
     for (let el of document.querySelectorAll(`input[type=text], textarea, select, button`)) {
         console.log(trans.name[el.name])
