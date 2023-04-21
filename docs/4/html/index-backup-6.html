@@ -41,37 +41,100 @@
 <div style="display:table-column;">label</div>
 <div style="display:table-column;">input</div>
 </div>
-<div style="display:table-row;" title="タイトル">
+<div style="display:table-row;">
 <label style="display:table-cell;padding:0;margin:0;width:0px;" for="title">Title</label><input type="text" id="title" name="title" placeholder="作品タイトル" style="display:table-cell;width:100%;"></div>
-<div style="display:table-row;" title="テーマ">
+<div style="display:table-row;">
 <label style="display:table-cell;padding:0;margin:0;" for="theme">Theme</label><input type="text" id="theme" name="theme" placeholder="テーマ" style="display:table-cell;width:100%;"></div>
-<div style="display:table-row;" title="フック（ツカミ・お約束・Fun & Games）">
+<div style="display:table-row;">
 <label style="display:table-cell;padding:0;margin:0;" for="hook">Hook</label><input type="text" id="hook" name="hook" placeholder="ツカミ。お約束。Fun & Games" style="display:table-cell;width:100%;"></div>
-<div style="display:table-row;" title="Central Question（主人公が解決すべき課題。生き残れるか等）">
+<div style="display:table-row;">
 <label style="display:table-cell;padding:0;margin:0;" for="central-question">CQ</label><input type="text" id="central-question" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等" style="display:table-cell;width:100%;"></div>
-<div style="display:table-row;" title="ログライン（誰が、何して、どう変わるか）">
+<div style="display:table-row;">
 <label style="display:table-cell;padding:0;margin:0;" for="logline">Logline</label><!--<input type="text" id="logline" name="logline" placeholder="誰が、何して、どう変わるか" style="display:table-cell;width:100%;">--><textarea id="logline" name="logline" placeholder="誰が、何して、どう変わるか" class="flex" style="width:100%;min-height:max-content;"></textarea></div>
 </div>
-<div style="display:table-row;" title="ジャンル">
-<label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label><select id="genre" name="genre" style="display:table-cell;width:100%;">
-<option value="buddy-love">Buddy Love</option>
-<option value="dude-with-a-problem">Dude with a problem</option>
-<option value="fool-triumphant">Fool Triumphant</option>
-<option value="golden-fleece">Golden fleece</option>
-<option value="institutionalized">Institutionalized</option>
-<option value="monster-in-the-house">Monster in the House</option>
-<option value="out-of-the-bottle">Out of the Bottle</option>
-<option value="rites-of-passage">Rites of Passage</option>
-<option value="super-hero">Super Hero</option>
-<option value="Why-dun-it">Whydunit</option>
-</select>
-<select id="sub-genre" name="sub-genre"></select>
-<p id="genre-summary"></p></div>
-<datalist id="dl-sub-buddy-love">
-<option value="buddy-love">Buddy Love</option>
-</datalist>
 </div>
-<div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" title="Synopsis あらすじ" style="display:table-cell;width:100%;height:100%;"></textarea></div>
+<!--
+<div><div style="display:table-row;width:100%;"><label style="display:table-cell;width:100%;width:100%;" title="Synopsis あらすじ" for="synopsis">Synopsis</label></div><div style="display:table-row;width:100%;"><textarea id="synopsis" name="synopsis" placeholder="あらすじ" style="display:table-cell;width:100%;"></textarea></div></div>
+
+<div><div style="display:grid;grid-template-rows:30px 1fr;width:100%;background:#ff0000;"><div><label style="display:table-cell;width:100%;" title="Synopsis あらすじ" for="synopsis">Synopsis</label></div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" style="display:table-cell;width:100%;"></textarea></div></div>
+-->
+<!--
+<div><div style=""><div><label style="display:block;float:left;width:100%;text-align:center;" title="あらすじ" for="synopsis">Synopsis</label></div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" style="width:100%;height:140px;"></textarea></div></div>
+-->
+
+<div><div style="display:grid;grid-template-rows:30px 10rem;"><div><label style="display:table-cell;width:100%;width:100%;" title="Synopsis あらすじ" for="synopsis">Synopsis</label></div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" style="display:table-cell;width:100%;"></textarea></div></div>
+</div>
+
+
+
+<h1>Work summary</h1>
+<!-- Grid layout + Table layout -->
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);"><!--他5つ,あらすじ-->
+<div><!--項目名,input-->
+<div style="display:table;width:100%;border-collapse:collapse;padding:0;margin:0;">
+<div style="display:table-row;">
+<label style="display:table-cell;" for="title">Title</label><input type="text" id="title" name="title" placeholder="作品タイトル" style="display:table-cell;width:100%;"></div>
+<div style="display:table-row;">
+<label style="display:table-cell;" for="theme">Theme</label><input type="text" id="theme" name="theme" placeholder="テーマ" style="display:table-cell;width:100%;"></div>
+<div style="display:table-row;">
+<label style="display:table-cell;" for="hook">Hook</label><input type="text" id="hook" name="hook" placeholder="ツカミ。お約束。Fun & Games" style="display:table-cell;width:100%;"></div>
+<div style="display:table-row;">
+<label style="display:table-cell;" for="central-question">CQ</label><input type="text" id="central-question" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等" style="display:table-cell;width:100%;"></div>
+<div style="display:table-row;">
+<label style="display:table-cell;" for="logline">Logline</label><input type="text" id="logline" name="logline" placeholder="誰が、何して、どう変わるか" style="display:table-cell;width:100%;"></div>
+</div>
+</div>
+<div><div style="display:table-row;width:100%;"><label style="display:table-cell;width:100%;width:100%;" title="Synopsis あらすじ" for="synopsis">Synopsis</label></div><div style="display:table-row;width:100%;"><textarea id="synopsis" name="synopsis" placeholder="あらすじ" style="display:table-cell;width:100%;"></textarea></div></div>
+</div>
+
+
+<!-- Grid layout -->
+<h1>Work summary</h1>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);"><!--他5つ,あらすじ-->
+<div><!--項目名,input-->
+<div style="float:left;display:grid;grid-template-rows:repeat(5, 1fr);grid-auto-columns:auto;">
+<span title="タイトル">Title</span>
+<span title="テーマ">Theme</span>
+<span title="ツカミ">Hook</span>
+<span title="Central Question">CQ</span>
+<span title="ログライン">Logline</span>
+</div>
+<div style="display:grid;grid-template-rows:repeat(5, 1fr);grid-auto-columns:auto;">
+<label><input type="text" name="title" placeholder="作品タイトル"></label>
+<label><input type="text" name="theme" placeholder="テーマ"></label>
+<label><input type="text" name="hook" placeholder="ツカミ。お約束展開。Fun & Games"></label>
+<label><input type="text" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等"></label>
+<label><input type="text" name="logline" placeholder="誰が、何して、どう変わるか"></label>
+</div></div>
+<div><label title="Synopsis あらすじ"><textarea name="synopsis" placeholder="あらすじ"></textarea></label></div>
+</div>
+<!--
+<label><input type="text" name="title" placeholder="作品タイトル"></label>
+<label><input type="text" name="theme" placeholder="テーマ"></label>
+<label><input type="text" name="hook" placeholder="ツカミ。お約束展開。Fun & Games"></label>
+<label><input type="text" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等"></label>
+<label><input type="text" name="logline" placeholder="誰が、何して、どう変わるか"></label>
+<label><textarea name="synopsis" placeholder="あらすじ"></textarea></label>
+-->
+
+<h1>Work summary</h1>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);"><!--他5つ,あらすじ-->
+<div><!--項目名,input-->
+<div style="float:left;display:grid;grid-template-rows:repeat(5, 1fr);grid-auto-columns:auto;">
+<label title="タイトル" for="title">Title</label>
+<label title="テーマ" for="theme">Theme</label>
+<label title="ツカミ" for="hook">Hook</label>
+<label title="Central Question" for="central-question">CQ</label>
+<label title="ログライン" for="logline">Logline</label>
+</div>
+<div style="display:grid;grid-template-rows:repeat(5, 1fr);grid-auto-columns:auto;">
+<input type="text" name="title" placeholder="作品タイトル">
+<input type="text" name="theme" placeholder="テーマ">
+<input type="text" name="hook" placeholder="ツカミ。お約束展開。Fun & Games">
+<input type="text" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等">
+<input type="text" name="logline" placeholder="誰が、何して、どう変わるか">
+</div></div>
+<div><label title="Synopsis あらすじ"><textarea name="synopsis" placeholder="あらすじ"></textarea></label></div>
 </div>
 
 <!-- Grid layout + Table layout -->

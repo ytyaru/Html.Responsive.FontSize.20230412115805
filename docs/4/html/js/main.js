@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
             })
         }
     }
+    document.querySelectorAll('textarea.flex').forEach(setupFlexTextarea)
     /*
     for (let el of document.querySelectorAll(`input[type=text], textarea, select, button`)) {
         console.log(trans.name[el.name])

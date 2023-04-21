@@ -1,0 +1,167 @@
+[
+    {
+        "name": {
+            "full":"Monster In The House",
+            "short":"MITH"
+        },
+        "triple": ["Monster","House","Sin"],
+        "sub": [
+            {"name": "Pure Monster", "description": "Alien, Jaws, Tremors, The Thing,Jurassic Park, Anaconda, Deep Blue Sea, Godzilla, Independence Day, Men in Black, Lake Placid"},
+            {"name": "Domestic Monster", "description": "Fatal Attraction, Play Misty for Me, The Hand, That Rocks the Cradle, Pacific Heights, Poison Ivy, The Fan, Single White Female, The Crush, Swimfan, The Cable Guy, One Hour Photo"},
+            {"name": "Supra-natural Monster:", "description": "The Ring, The Exorcist, The Legend of Hell House, The Shining, Poltergeist, A Nightmare on Elm Street, Child’s Play, What Lies Beneath, House on Haunted Hill, The Exorcism of Emily Rose "},
+            {"name": "Nihilist Monster", "description": "Saw, Peeping Tom, American Psycho, Cabin Fever, Audition, The Others, Lost Highway, The Village, The Grudge, Identity, The Host"},
+            {"name": "", "description": ""}
+        ]
+    },
+    {
+        "name": {
+            "full":"Golden Fleece",
+
+            "short":"GF"
+        },
+        "triple": ["Road","Team","Prize"],
+        "sub": [
+            {"name": "Sports Fleece", "description": ""},
+            {"name": "Buddy Fleece", "description": ""},
+            {"name": "Epic Fleece", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"",
+            "short":""
+        },
+        "triple": ["","",""],
+        "sub": [
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""},
+            {"name": "", "description": ""}
+        ]
+    },
+
+]
