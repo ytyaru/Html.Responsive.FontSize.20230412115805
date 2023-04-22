@@ -1,0 +1,143 @@
+[
+    {
+        "name": {
+            "full":"Monster In The House",
+            "short":"MITH"
+        },
+        "triple": ["Monster","House","Sin"],
+        "sub": [
+            {"name": "Pure Monster", "works": ["Alien", "Jaws", "Tremors", "The Thing", "Jurassic Park", "Anaconda", "Deep Blue Sea", "Godzilla", "Independence Day", "Men in Black", "Lake Placid"]},
+            {"name": "Domestic Monster", "works": ["Fatal Attraction", "Play Misty for Me", "The Hand", "That Rocks the Cradle", "Pacific Heights", "Poison Ivy", "The Fan", "Single White Female", "The Crush", "Swimfan", "The Cable Guy", "One Hour Photo"]},
+            {"name": "Serial Monster", "works": ["Scream", "Psycho", "Prom Night", "Halloween", "Texas Chainsaw Massacre", "Friday the 13th", "I Know What You Did Last Summer", "Urban Legend", "Red Dragon", "Hannibal", "Hostel"]},
+            {"name": "Supra-natural Monster:", "works": ["The Ring", "The Exorcist", "The Legend of Hell House", "The Shining", "Poltergeist, A Nightmare on Elm Street", "Child’s Play", "What Lies Beneath", "House on Haunted Hill", "The Exorcism of Emily Rose"]},
+            {"name": "Nihilist Monster", "works": ["Saw", "Peeping Tom", "American Psycho", "Cabin Fever", "Audition", "The Others", "Lost Highway", "The Village", "The Grudge", "Identity", "The Host"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Golden Fleece",
+            "short":"GF"
+        },
+        "triple": ["Road","Team","Prize"],
+        "sub": [
+            {"name": "Sports Fleece", "works": ["The Bad News Bears", "The Longest Yard", "Slap Shot", "Rocky", "Major League", "Hoosiers", "A League of Their Own", "Cool Runnings", "The Mighty Ducks", "Remember the Titans", "Dodgeball: A True Underdog Story"]},
+            {"name": "Buddy Fleece", "works": ["Planes", "Trains and Automobiles", "Easy Rider; National", "Lampoon’s Vacation; Stranger", "than Paradise; Fandango;", "Thelma & Louise; Finding", "Nemo; Road Trip; O Brother", "Where Art Thou?; Little Miss", "Sunshine; Wild Hog"]},
+            {"name": "Epic Fleece", "works": ["Saving Private Ryan", "The Guns of Navarone", "The Dirty Dozen", "The Professionals", "Star Wars", "Apocalypse Now", "Glory", "Three Kings", "Master and Commander: The Far Side of The World", "National Treasure", "The Lord of the Rings"]},
+            {"name": "Caper Fleece", "works": ["Ocean’s Eleven", "Rififi", "Topkapi", "The Great St. Louis Bank Robbery", "The Hot Rock", "Papillon", "Escape from Alcatraz", "Quick Change", "Sneakers", "The Usual Suspects", "The Italian Job"]},
+            {"name": "Solo Fleece", "works": ["Maria Full of Grace", "Barry Lyndon", "Coal Miner’s Daughter", "About Schmidt", "Capote", "Garden State", "Cast Away", "Ray", "Walk the Line", "Vanity Fair", "Cold Mountain"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Out of the Bottle",
+            "short":"OOTB"
+        },
+        "triple": ["Wish", "Spell", "Lesson"],
+        "sub": [
+            {"name": "Body Switch Bottle", "works": ["Freaky Friday", "Vice Versa", "Like Father Like Son", "18 Again!", "Big", "Dream a Little Dream", "13 Going On 30", "All of Me", "Switch", "The Hot Chick", "The Shaggy Dog"]},
+            {"name": "Angel Bottle", "works": ["Cocoon", "Mary Poppins", "The Love Bug", "Oh God!", "Batteries not included", "Short Circuit", "Angels in the Outfield", "Aladdin", "Meet Joe Black", "Bruce Almighty", "Nanny McPhee"]},
+            {"name": "Thing Bottle", "works": ["The Nutty Professor", "Electric Dreams", "Love Potion #9", "The Mask", "Jumanji", "Flubber", "Death Becomes Her", "Like Mike", "Clockstoppers", "Click", "The Last Mimsy"]},
+            {"name": "Curse Bottle", "works": ["What Women Want Witchboard", "The Craft", "Liar Liar", "The Devil’s Advocate", "Ella Enchanted", "Bedazzled", "Practical Magic", "The Animal", "Shallow Hal", "The Ant Bully"]},
+            {"name": "Surreal Bottle", "works": ["Eternal Sunshine of the Spotless Mind", "It’s a Wonderful Life", "Heaven Can Wait", "Field of Dreams", "Scrooged", "Groundhog Day", "Pleasantville", "The Butterfly Effect", "Primer", "Sliding Doors", "The Family Man"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Dude with a Problem",
+            "short":"DWAP"
+        },
+        "triple": ["Innocent Hero", "Sudden Event", "Life or Death Battle"],
+        "sub": [
+            {"name": "Spy Problem", "works": ["Three Days of the Condor", "North by Northwest", "The Man Who Knew Too Much", "The Long Kiss Goodnight", "The Net", "Enemy of the State", "The Bourne Identity", "Paycheck", "The Bourne Supremacy", "Nowhere to Run", "Shooter"]},
+            {"name": "Law Enforcement Problem", "works": ["Die Hard", "Outland", "Breakdown", "Under", "Siege", "The Fugitive", "Speed", "Air Force One", "Flightplan", "Red Eye", "Man on Fire"]},
+            {"name": "Domestic Problem", "works": ["Sleeping with the Enemy", "Sorry", "Wrong Number", "Wait Until Dark", "When a Stranger Calls", "Blink", "Cape Fear", "Misery", "Suicide Kings", "A Perfect Murder", "Hostage", "Enough"]},
+            {"name": "Epic Problem", "works": ["Deep Impact", "The Towering Inferno", "The Poseidon Adventure", "Earthquake", "Meteor", "The Day After", "Volcano", "Dante’s Peak", "Outbreak", "The Day After Tomorrow", "Armageddon"]},
+            {"name": "Nature Problem", "works": ["Open Water", "The Flight of the Phoenix", "Champions", "Lorenzo’s Oil", "The Edge", "Alive", "Apollo 13", "Twister", "Six Days", "Seven Nights", "Into Thin Air", "Death on Everest", "The Perfect Storm"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Rites of Passage",
+            "short":"ROP"
+        },
+        "triple": ["Life Problem", "Wrong Way", "Acceptance"],
+        "sub": [
+            {"name": "Mid-Life Passage", "works": ["10", "Seconds", "Save the Tiger", "That’s Life!", "The Weather Man", "Lord of War", "On a Clear Day", "The Upside of Anger", "Lost in Translation", "Living Out Loud", "I Think I Love My Wife"]},
+            {"name": "Separation Passage", "works": ["Kramer vs. Kramer", "Divorce American Style", "Blume in Love", "An Unmarried Woman", "Modern Romance", "The War of the Roses", "The Break-Up", "The First Wives Club", "Bye Bye Love", "Stepmom", "Dinner with Friends"]},
+            {"name": "Death Passage", "works": ["Ordinary People", "All That Jazz", "My Life, Dying Young", "Wit", "The Sweet Hereafter", "You Can Count on Me", "Ponette", "The Doctor", "The Accidental Tourist", "One True Thing"]},
+            {"name": "Addiction Passage", "works": ["28 Days", "The Lost Weekend", "The Man with the Golden Arm", "Days of Wine and Roses", "When a Man Loves a Woman", "Clean and Sober", "Permanent Midnight", "Postcards from the Edge", "Trainspotting", "Barfly", "Clean"]},
+            {"name": "Adolescent Passage", "works": ["Napoleon", "Dynamite", "American Graffiti", "Breaking Away", "Risky Buisness", "Sixteen Candles", "Lucas", "American Pie", "Porky’s ", "Pretty in Pink", "Dazed and Confused", "Thirteen"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Buddy Love",
+            "short":"BL"
+        },
+        "triple": ["Incomplete Hero", "Counterpart", "Complication"],
+        "sub": [
+            {"name": "Pet Love", "works": ["The Black", "Stallion", "The Yearling", "Lassie", "My Friend Flicka", "Air Bud", "Andre", "My Dog Skip", "Free Willy", "Beethoven", "Benji", "Black Beauty"]},
+            {"name": "Professional Love", "works": ["Lethal", "Weapon", "The Producers", "Butch Cassidy and the Sundance Kid", "The Front Page", "The Sunshine Boys", "Tapeheads", "48 Hrs.", "Feds", "Tango & Cash", "Wayne’s World", "Rush Hour"]},
+            {"name": "Rom-com Love", "works": ["When Harry Met", "Sally", "Pat and Mike", "Pretty Woman", "Sleepless in Seattle", "You’ve Got Mail", "French Kiss", "Notting Hill", "The Wedding Planner", "Maid in Manhattan", "Two Weeks", "Failure to Launch"]},
+            {"name": "Epic Love", "works": ["Titanic", "Gone with the Wind", "Dr. Zhivago", "The Wind and the Lion", "The Year of Living Dangerously", "True Lies", "The Last of the Mohicans", "Mr. and Mrs. Smith", "The Notebook", "The Far Pavilions", "The Painted Veil"]},
+            {"name": "Forbidden Love", "works": ["Brokeback", "Mountain", "Lolita", "Guess Who’s Coming to Dinner", "Romeo & Juliet", "Harold and Maude", "The Blue Lagoon", "An Officer and a Gentleman", "Dirty Dancing", "Beauty and the Beast", "Benny & Joon", "Venus"]}
+        ]
+    },
+
+    {
+        "name": {
+            "full":"Whydunit",
+            "short":"WD"
+        },
+        "triple": ["Detective", "Secret", "Dark Turn"],
+        "sub": [
+            {"name": "Political Whydunit", "works": ["All the President’s Men", "Z", "The Parallax View", "The China Syndrome", "JFK", "The Insider", "The Quiet American", "The Manchurian Candidate", "The Constant Gardener", "The Interpreter"]},
+            {"name": "Fantasy Whydunit", "works": ["Blade Runner", "Who Framed Roger Rabbit", "Cool World", "Mulholland Drive", "Ghost", "The Sixth Sense", "The Singer Detective", "Minority Report", "Sky Captain and the World of Tomorrow", "I", "Robot"]},
+            {"name": "Cop Whydunit", "works": ["fargo", "The French Connection", "Dirty Harry", "Tightrope", "To Live and Die in LA", "Basic Instinct", "City by the Sea", "LA Confidential", "Insomnia", "Twisted", "Narc"]},
+            {"name": "Personal Whydunit", "works": ["Mystic River", "The Third Man", "Rear Window", "Vertigo", "The Conversation", "Body Double", "Final Analysis", "Jagged Edge", "Kiss the Girls", "High Crimes", "Disturbia"]},
+            {"name": "Noir Whydunit", "works": ["Brick", "Chinatown", "The Long Goodbye", "Farewell", "My Lovely", "The Big Sleep", "Body Heat", "Devil in a Blue Dress", "Blue Velvet", "Mulholland Falls", "Hollywoodland", "The Black Dahlia"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Fool Triumphant",
+            "short":"FT"
+        },
+        "triple": ["Fool", "Establishment", "Transmutation"],
+        "sub": [
+            {"name": "Political Fool", "works": ["Being There", "Mr. Smith Goes to Washington", "Meet John Doe", "King Ralph", "Protocol", "Dave", "The Distinguished Gentleman", "Moon Over Parador", "Bulworth", "The Princess Diaries", "Head of State"]},
+            {"name": "Undercover Fool", "works": ["Tootsie", "Some Like It Hot", "Trading Places", "Soul Man", "Working Girl", "Victor/Victoria", "Mrs. Doubtfire", "Miss Congeniality", "Big Momma’s House", "Connie and Carla", "She’s the Man"]},
+            {"name": "Society Fool", "works": ["Forrest Gump", "Charly", "Zelig", "Shine", "Awakenings", "Sling Blade", "Radio", "My Left Foot", "I Am Sam", "The Other Sister", "Mask"]},
+            {"name": "Fool Out of Water", "works": ["Legally Blonde", "Stripes", "Beverly Hills Cop", "Private Benjamin", "Crocodile Dundee", "My Blue Heaven", "Mr. Mom", "Coming to America", "Daddy Day Care", "Elf", "The Pacifer"]},
+            {"name": "Sex Fool", "works": ["The 40-Year old Virgin", "I Love You", "Alice B. Toklas", "The Party", "Play It Again", "Sam", "Bob & Ted & Carol & Alice", "The World’s Greatest Lover", "Lover Boy", "Roxanne", "Down with Love", "Bridget Jones’s Diary", "The Guru"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Institutionalized",
+            "short":"I"
+        },
+        "triple": ["Group", "Choice", "Sacrifice"],
+        "sub": [
+            {"name": "Military Institution", "works": ["M*A*S*H", "Breaker Morant", "Gallipoli", "Paths of Glory", "Platoon", "A Few Good Men", "Taps", "The Caine Munity", "Top Gun", "Full Metal Jacket", "We Were Soldiers"]},
+            {"name": "Family Institution", "works": ["Do the Right Thing", "The Godfather", "Boyz N the Hood", "Goodfellas", "Terms of Endearment", "The Joy Luck Club", "Liberty Heights", "Avalon", "American Beauty", "The Royal Tenenbaums", "Spanglish"]},
+            {"name": "Business Institution", "works": ["Office Space", "One Flew Over the Cuckoo’s Nest", "9 to 5", "Network", "The Hospital", "Glengarry Glen Ross", "Barbarians at the Gate", "The Paper", "Boiler Room", "Pushing Tin", "Ladder 49"]},
+            {"name": "Mentor Institution", "works": ["Training Day", "Wall Street", "Dead Poet’s Society", "Swimming with Sharks", "Mentor", "Mona Lisa Smile", "Apt Pupil", "The Emperor’s Club", "In Good Company", "The Devil Wears Prada", "The Departed"]},
+            {"name": "Issue Institution", "works": ["Crash", "Nashville", "The Big Chill", "Short Cuts", "Magnolia", "Eating", "Night on Earth", "Thirteen Conversations About One Thing", "Sin City", "Friends with Money", "Babel"]}
+        ]
+    },
+    {
+        "name": {
+            "full":"Superhero",
+            "short":"SH"
+        },
+        "triple": ["Special Power", "Nemesis", "Curse"],
+        "sub": [
+            {"name": "Real Life Superhero", "works": ["Raging Bull", "Lenny", "Gandhi", "Braveheart", "Malcom X", "Frances", "Joan of Arc", "Erin Brockovich", "The Passion of the Christ, A Beautiful Mind"]},
+            {"name": "Storybook Superhero", "works": ["The Lion King", "Peter Pan", "The Hunchback of Notre Dane", "Mulan", "The Chronicles of Narnia: The Lion", "the Witch and the Wardrobe", "The Jungle Book", "The Little Mermaid", "Willy Wonka & the Chocolate Factory", "the Harry Potter series", "Happy Feet", "Ratatouille"]},
+            {"name": "Fantasy Superhero", "works": ["The Matrix", "Brazil", "Hook", "The Neverending Story", "MirrorMask", "The Nightmare Before Christmas", "Antz", "The League of Extraordinary Gentlemen", "Van Helsing", "V for Vendetta", "Eragon"]},
+            {"name": "People’s Superhero", "works": ["Gladiator", "Gunga Din", "Ben-Hur", "High Plains Drifter", "Greystoke: The Legend of Tarzan", "The Three Musketeers", "Robin Hood: Prince of Thieves", "The Mask of Zorro", "Whale Rider", "The Patriot", "Casino Royale"]},
+            {"name": "Comic Book Superhero", "works": ["Spider-Man 2", "Batman", "The Fantastic Four", "The Incredibles", "X-Men", "Blade", "The Hulk", "Tank Girl", "Catwoman", "The Crow", "Hellboy"]}
+        ]
+    },
+]
