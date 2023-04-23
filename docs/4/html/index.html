@@ -29,6 +29,8 @@
 <script src="js/observer.js"></script>
 -->
 <script src="js/flex-textarea.js"></script>
+<script src="js/tsv.js"></script>
+<script src="js/genre.js"></script>
 <script src="js/main.js"></script>
 </head>
 <body>
@@ -51,28 +53,58 @@
 <label style="display:table-cell;padding:0;margin:0;" for="central-question">CQ</label><input type="text" id="central-question" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等" style="display:table-cell;width:100%;"></div>
 <div style="display:table-row;" title="ログライン（誰が、何して、どう変わるか）">
 <label style="display:table-cell;padding:0;margin:0;" for="logline">Logline</label><!--<input type="text" id="logline" name="logline" placeholder="誰が、何して、どう変わるか" style="display:table-cell;width:100%;">--><textarea id="logline" name="logline" placeholder="誰が、何して、どう変わるか" class="flex" style="width:100%;min-height:max-content;"></textarea></div>
+
+<div style="display:table-row;" title="ジャンル">
+<label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label>
+<div style="display:table-cell;width:100%;">
+    <!--<div style="display:grid;grid-template-columns:3fr 1fr;">-->
+    <div>
+        <img id="genre-icon" src="asset/image/icon/genre/png/220x220/{lid}.png" width="110px" style="float:left;" title="">
+        <div style="">
+            <div><select id="genre" name="genre"></select><select id="sub-genre" name="sub-genre"></select></div>
+            <div><textarea id="genre-summary" title="ジャンル要約" style="width:calc(100% - 110px);" rows=3 disabled></textarea></div>
+            <!--<div><p id="genre-summary" title="ジャンル要約" style="overflow-wrap:break-word;"></p></div>-->
+        </div>
+    </div>
+    <div>
+    </div>
 </div>
+</div>
+<!--
+<div style="display:table-row;" title="ジャンル">
+<label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label><div style="display:table-cell;width:100%;"><select id="genre" name="genre"></select><select id="sub-genre" name="sub-genre"></select></div></div>
+
+-->
+
+<!--
+<div style="display:table-row;" title="ジャンル要約"><p id="genre-summary"></p></div>
+-->
+</div>
+<!--
 <div style="display:table-row;" title="ジャンル">
 <label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label><select id="genre" name="genre" style="display:table-cell;width:100%;">
-<option value="buddy-love">Buddy Love</option>
-<option value="dude-with-a-problem">Dude with a problem</option>
-<option value="fool-triumphant">Fool Triumphant</option>
-<option value="golden-fleece">Golden fleece</option>
-<option value="institutionalized">Institutionalized</option>
 <option value="monster-in-the-house">Monster in the House</option>
+<option value="golden-fleece">Golden fleece</option>
 <option value="out-of-the-bottle">Out of the Bottle</option>
+<option value="dude-with-a-problem">Dude with a problem</option>
 <option value="rites-of-passage">Rites of Passage</option>
-<option value="super-hero">Super Hero</option>
+<option value="buddy-love">Buddy Love</option>
 <option value="Why-dun-it">Whydunit</option>
-</select>
-<select id="sub-genre" name="sub-genre"></select>
+<option value="fool-triumphant">Fool Triumphant</option>
+<option value="institutionalized">Institutionalized</option>
+<option value="super-hero">Super Hero</option>
+</select><select id="sub-genre" name="sub-genre"></select>
 <p id="genre-summary"></p></div>
 <datalist id="dl-sub-buddy-love">
 <option value="buddy-love">Buddy Love</option>
 </datalist>
+-->
 </div>
 <div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" title="Synopsis あらすじ" style="display:table-cell;width:100%;height:100%;"></textarea></div>
 </div>
+<!--
+<p id="genre-summary" title="ジャンル要約"></p>
+-->
 
 <!-- Grid layout + Table layout -->
 <h2>Beat sheet</h2>
