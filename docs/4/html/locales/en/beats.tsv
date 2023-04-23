@@ -1,0 +1,21 @@
+order	sid	lid	label	pos	description	descriptionJa
+1	OI	opening-image	Opening Image	0-1	before picture of your hero (or world)	主人公や世界が変化する前の様子を示す
+2	TS	theme-stated	Theme stated	5	
+3	SU	setup	Setup	1-10	
+4	CA	catalyst	Catalyst	10	
+5	DE	debate	Debate	10-20	
+6	B2	break-into-2	Break into 2	20	
+7	BS	b-story	B-Story	22	
+8	FG	fun-and-games	Fun & Games	20-50	
+9	MP	midpoint	Midpoint	50	
+10	BG	bad-guys-close-in	Bad Guys Close In	50-75	
+11	AL	all-is-lost	All is lost	75	
+12	DS	dark-night-of-the-soul	Dark night of the Soul	75-80	
+13	B3	break-into-3	Break into 3	80	
+14	FN	finale	Finale	80-99	
+15	FI	final-image	Final Image	99-100	
+14-1	GT	gather-the-team	Gather the team	80-82	
+14-2	SC	storming-the-castle	Storming the Castle	83-86	
+14-3	HS	hightower-surprise	Hightower Surprise	87-90	
+14-4	DD	dig-deep-down	Dig deep down	91-94	
+14-5	EP	execute-new-plan	Execute new plan	95-99	
