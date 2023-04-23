@@ -53,6 +53,7 @@ class Genre {
             document.getElementById('genre-summary').value = genre.summaryJa
             document.getElementById('genre-icon').src = `asset/image/icon/genre/png/220x220/${genre.lid}.png`
             document.getElementById('genre-icon').title = genre.label
+            //this.#resetTriple(genre.triple)
             await this.#resetWorkExamples(genre.sub[0])
         })
         this.subGenreSelect = document.getElementById('sub-genre')
@@ -88,6 +89,19 @@ class Genre {
         }
         document.getElementById('genre-work-examples').innerHTML = ''
         document.getElementById('genre-work-examples').appendChild(ul)
+    }
+    #resetTriple(triple) {
+        const ul = document.createElement('ul')
+        ul.style = 'list-style-type:none;'
+        for (let t of triple) {
+            const li = document.createElement('li')
+            const a = document.createElement('a')
+            li.style = 'display:inline-block;padding-right:1em;'
+            li.textContent = t
+            ul.appendChild(li)
+        }
+        document.getElementById('genre-triple').innerHTML = ''
+        document.getElementById('genre-triple').appendChild(ul)
     }
 }
 window.Genre = new Genre()

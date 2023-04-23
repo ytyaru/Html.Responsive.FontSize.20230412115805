@@ -57,53 +57,21 @@
 <div style="display:table-row;" title="ジャンル">
 <label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label>
 <div style="display:table-cell;width:100%;">
-    <!--<div style="display:grid;grid-template-columns:3fr 1fr;">-->
     <div>
         <img id="genre-icon" src="asset/image/icon/genre/png/220x220/{lid}.png" width="110px" style="float:left;" title="">
         <div style="">
             <div><select id="genre" name="genre"></select><select id="sub-genre" name="sub-genre" title="サブジャン"></select></div>
             <div><textarea id="genre-summary" title="ジャンル要約" style="width:calc(100% - 110px);" rows=3 disabled></textarea></div>
-            <!--<div><p id="genre-summary" title="ジャンル要約" style="overflow-wrap:break-word;"></p></div>-->
+            <div id="genre-triple"></div>
         </div>
     </div>
     <div id="genre-work-examples"></div>
 </div>
 </div>
-<!--
-<div style="display:table-row;" title="ジャンル">
-<label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label><div style="display:table-cell;width:100%;"><select id="genre" name="genre"></select><select id="sub-genre" name="sub-genre"></select></div></div>
-
--->
-
-<!--
-<div style="display:table-row;" title="ジャンル要約"><p id="genre-summary"></p></div>
--->
 </div>
-<!--
-<div style="display:table-row;" title="ジャンル">
-<label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label><select id="genre" name="genre" style="display:table-cell;width:100%;">
-<option value="monster-in-the-house">Monster in the House</option>
-<option value="golden-fleece">Golden fleece</option>
-<option value="out-of-the-bottle">Out of the Bottle</option>
-<option value="dude-with-a-problem">Dude with a problem</option>
-<option value="rites-of-passage">Rites of Passage</option>
-<option value="buddy-love">Buddy Love</option>
-<option value="Why-dun-it">Whydunit</option>
-<option value="fool-triumphant">Fool Triumphant</option>
-<option value="institutionalized">Institutionalized</option>
-<option value="super-hero">Super Hero</option>
-</select><select id="sub-genre" name="sub-genre"></select>
-<p id="genre-summary"></p></div>
-<datalist id="dl-sub-buddy-love">
-<option value="buddy-love">Buddy Love</option>
-</datalist>
--->
 </div>
 <div><textarea id="synopsis" name="synopsis" placeholder="あらすじ" title="Synopsis あらすじ" style="display:table-cell;width:100%;height:100%;"></textarea></div>
 </div>
-<!--
-<p id="genre-summary" title="ジャンル要約"></p>
--->
 
 <!-- Grid layout + Table layout -->
 <h2>Beat sheet</h2>
@@ -163,128 +131,11 @@
 </div>
 </div>
 
-
-<!-- Grid layout -->
-<h2>Beat sheet</h2>
-<div style="display:grid;grid-template-rows:repeat(4, 1fr);grid-auto-columns:100%;">
-<div style="display:grid;grid-template-columns:1fr 1fr 2fr 1fr 1fr;"><!--1行目 OI,T,Sx2,C,D-->
-<section class="pink"><h3>Opening image</h3><textarea name="opening-image" placeholder=""></textarea></section>
-<section class="pink"><h3>Theme stated</h3><textarea name="theme-stated" placeholder=""></textarea></section>
-<section class="pink"><h3>Setup</h3><div class="trisection"><textarea name="setup-home" placeholder=""></textarea><textarea name="setup-work" placeholder=""></textarea><textarea name="setup-play" placeholder=""></textarea></div></section>
-<section class="pink"><h3>Catalyst</h3><textarea name="catalyst" placeholder=""></textarea></section>
-<section class="yellow"><h3>Debate</h3><div class="trisection"><textarea name="debate-home" placeholder=""></textarea><textarea name="debate-work" placeholder=""></textarea><textarea name="debate-play" placeholder=""></textarea></div></section>
-</div>
-<div style="display:grid;grid-template-columns:repeat(6, 1fr);"><!--2行目 B2,BS-FG,MP,BC,AL,DS-->
-<div style="float:top; margin:0; padding:0;"><br>
-<section class="green"><h3>Break into 2</h3><label><input type="text" name="heros-want" placeholder=""></label><br><label><input type="text" name="heros-want-problem" placeholder=""></label><br><textarea name="break-into-two" placeholder=""></textarea></section>
-</div>
-<div style="display:grid;grid-template-rows:repeat(2, 1fr);grid-auto-columns:100%;">
-<section class="blue"><h3>B story</h3><textarea name="b-story" placeholder=""></textarea></section>
-<section class="green"><h3>Fun & Games</h3><textarea name="fun-and-games" placeholder=""></textarea></section>
-</div>
-<section class="green"><h3>Midpoint</h3>
-<label><input type="radio" name="midpoint-is-false-victory" value="false-victory" placeholder=""></label>
-<label><input type="radio" name="midpoint-is-false-victory" value="false-defert" placeholder=""></label><br>
-<textarea name="midpoint" placeholder=""></textarea></section>
-<section class="green"><h3>Bad guys close</h3>
-<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-despire" placeholder=""></label>
-<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-hope" placeholder=""></label><br>
-<textarea name="bad-guys-close" placeholder=""></textarea>
-</section>
-<section class="green"><h3>All is lost</h3><textarea name="all-is-lost" placeholder=""></textarea></section>
-<section class="yellow"><h3>Dark night of the soul</h3><div class="trisection">
-<textarea name="dark-night-of-the-soul-home" placeholder=""></textarea>
-<textarea name="dark-night-of-the-soul-work" placeholder=""></textarea>
-<textarea name="dark-night-of-the-soul-play" placeholder=""></textarea></div>
-</section>
-</div>
-<div style="display:grid;grid-template-columns:2fr repeat(4, 1fr);"><!--3行目 B3x2,GT,SC,HS,DD-->
-<section class="blue"><h3>Break into 3</h3><div style="float:top;">
-<label><input type="text" name="hero_need" placeholder=""></label>
-<textarea name="break_into_three" placeholder=""></textarea></div>
-</section>
-<section class="blue"><h3>Gather the team</h3>
-<label><input type="radio" name="is-theam-assembles" value="theam-assembles" placeholder=""></label>
-<label><input type="radio" name="is-theam-assembles" value="theam-abandons-hero" placeholder=""></label><br>
-<textarea name="gather-the-team" placeholder=""></textarea></section>
-<section class="blue"><h3>Storming the castle</h3>
-<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-despire" placeholder=""></label>
-<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-hope" placeholder=""></label><br>
-<textarea name="storming-the-castle" placeholder=""></textarea></section>
-<section class="blue"><h3>Hightower surprise</h3><textarea name="hightower-surprise" placeholder=""></textarea></section>
-<section class="yellow"><h3>Dig deep down</h3><textarea name="dig-deep-down" placeholder=""></textarea></section>
-</div>
-<div style="display:grid;grid-template-columns:repeat(3, 1fr);"><!--4行目 EPx2,FIx2,Blankx2-->
-<section class="orange"><h3>Execute new plan</h3><textarea name="execute-new-plan" placeholder=""></textarea></section>
-<section class="orange"><h3>Final image</h3>
-<label><input type="radio" name="is-changed-hero" value="hero-is-changed" placeholder=""></label>
-<label><input type="radio" name="is-changed-hero" value="hero-rejects-change" placeholder=""></label><br>
-<textarea name="final_image" placeholder=""></textarea></section>
-<div></div>
-</div>
-</div>
-
-<!-- Table -->
-<h2>Beat sheet</h2>
-<table><!--5,6,5,2-->
-<tr>
-<td class="pink"><section><h3>Opening image</h3><textarea name="opening-image" placeholder=""></textarea></section></td>
-<td class="pink"><section><h3>Theme stated</h3><textarea name="theme-stated" placeholder=""></textarea></section></td>
-<td colspan=2 class="pink"><section><h3>Setup</h3><div class="trisection"><textarea name="setup-home" placeholder=""></textarea><textarea name="setup-work" placeholder=""></textarea><textarea name="setup-play" placeholder=""></textarea></div></section></td>
-<td class="pink"><section><h3>Catalyst</h3><textarea name="catalyst" placeholder=""></textarea></section></td>
-<td class="yellow"><section><h3>Debate</h3><div class="trisection"><textarea name="debate-home" placeholder=""></textarea><textarea name="debate-work" placeholder=""></textarea><textarea name="debate-play" placeholder=""></textarea></div></section></td></tr>
-<tr>
-<td class="green"><section><h3>Break into 2</h3><label><input type="text" name="heros-want" placeholder=""></label><br><label><input type="text" name="heros-want-problem" placeholder=""></label><br><textarea name="break-into-two" placeholder=""></textarea></section></td>
-<td class="green"><section class="blue"><h3>B story</h3><textarea name="b-story" placeholder=""></textarea></section><section><h3>Fun & Games</h3><textarea name="fun-and-games" placeholder=""></textarea></section></td>
-<td class="green"><section><h3>Midpoint</h3>
-<label><input type="radio" name="midpoint-is-false-victory" value="false-victory" placeholder=""></label>
-<label><input type="radio" name="midpoint-is-false-victory" value="false-defert" placeholder=""></label><br>
-<textarea name="midpoint" placeholder=""></textarea></section></td>
-<td class="green"><section><h3>Bad guys close</h3>
-<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-despire" placeholder=""></label>
-<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-hope" placeholder=""></label><br>
-<textarea name="bad-guys-close" placeholder=""></textarea>
-</section></td>
-<td class="green"><section><h3>All is lost</h3><textarea name="all-is-lost" placeholder=""></textarea></section></td>
-<td class="yellow"><section><h3>Dark night of the soul</h3><div class="trisection">
-<textarea name="dark-night-of-the-soul-home" placeholder=""></textarea>
-<textarea name="dark-night-of-the-soul-work" placeholder=""></textarea>
-<textarea name="dark-night-of-the-soul-play" placeholder=""></textarea></div>
-</section></td></tr>
-<tr>
-<td colspan=2 class="blue"><section><h3>Break into 3</h3>
-<label><input type="text" name="hero_need" placeholder=""></label><br>
-<textarea name="break_into_three" placeholder=""></textarea>
-</section></td>
-<td class="blue"><section><h3>Gather the team</h3>
-<label><input type="radio" name="is-theam-assembles" value="theam-assembles" placeholder=""></label>
-<label><input type="radio" name="is-theam-assembles" value="theam-abandons-hero" placeholder=""></label><br>
-<textarea name="gather-the-team" placeholder=""></textarea></section></td>
-<td class="blue"><section><h3>Storming the castle</h3>
-<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-despire" placeholder=""></label>
-<label><input type="radio" name="storming-the-castle-is-despire" value="storming-the-castle-hope" placeholder=""></label><br>
-<textarea name="storming-the-castle" placeholder=""></textarea></section></td>
-<td class="blue"><section><h3>Hightower surprise</h3></section><textarea name="hightower-surprise" placeholder=""></textarea></td>
-<td class="yellow"><section><h3>Dig deep down</h3></section><textarea name="dig-deep-down" placeholder=""></textarea></td></tr>
-<tr>
-<td colspan=2 class="orange"><section><h3>Execute new plan</h3></section><textarea name="execute-new-plan" placeholder=""></textarea></td>
-<td colspan=2 class="orange"><section><h3>Final image</h3>
-<label><input type="radio" name="is-changed-hero" value="hero-is-changed" placeholder=""></label>
-<label><input type="radio" name="is-changed-hero" value="hero-rejects-change" placeholder=""></label><br>
-<textarea name="final_image" placeholder=""></textarea></section></td></tr>
-<td colspan=2></td>
-</table>
-
-
 <section><h2>情報源</h2>
 <ul>
 <li><a href="https://savethecat.com/get-started">Save the Cat (Beat Sheet)</a>
 <li><a href="https://www.flyingwrestler.com/wp-content/uploads/2020/09/SAVE-THE-CAT-genre-breakdown-with-Erik-Bork-additions.pdf">SAVE-THE-CAT-genre-breakdown-with-Erik-Bork-additions.pdf</a>
 <li><a href="https://www.savethecat.com/wp-content/uploads/2014/01/Tom-Gowen-Blake-Snyder-Beat-Sheet.pdf">Tom-Gowen-Blake-Snyder-Beat-Sheet.pdf</a>
-<li><a href=""></a>
-<li><a href=""></a>
-<li><a href=""></a>
-<li><a href=""></a>
 </ul>
 
 </section>
