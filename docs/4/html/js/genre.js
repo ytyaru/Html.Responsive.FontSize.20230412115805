@@ -2,10 +2,7 @@
 class Genre {
     constructor() { this.genres = null; this.workExamples = new Map(); this.genreSelect = null; this.subGenreSelect = null; }
     //async load() { await Promise.all([this.loadGenres(), this.loadWorkExamples()]); }
-    async load() {
-        await this.loadGenres()
-        await this.loadWorkExamples()
-    }
+    async load() { await this.loadGenres() }
     async loadGenres() {
         if (this.genres) { return this.genres }
         this.genres = await Tsv.load(`locales/en/genre.tsv`)
@@ -14,34 +11,31 @@ class Genre {
             this.genres[i].triple = this.genres[i].triple.split(',')
             this.genres[i].sub = this.genres[i].sub.split(',')
         }
-        //return this.genres
     }
     async loadWorkExample(subGenreId) {
         if (!this.workExamples.has(subGenreId)) {
-            const path = `locales/en/genre-works/${genre.sid}/${sub}.tsv`
-            this.workExamples.set(sub, await Tsv.load(path))
+            const sid = document.getElementById('genre').value
+            const path = `locales/en/genre-works/${sid}/${subGenreId}.tsv`
+            this.workExamples.set(subGenreId, await Tsv.load(path))
         }
         return this.workExamples.get(subGenreId)
     }
-    async loadWorkExamples() {
+    async loadWorkExamples() { // 一気に50ファイル取得するため遅延が酷いので使わない
         for (let genre of this.genres) {
             for (let sub of genre.sub) {
                 const path = `locales/en/genre-works/${genre.sid}/${sub}.tsv`
                 this.workExamples.set(sub, await Tsv.load(path))
             }
         }
-        console.log(this.workExamples)
-        /* TSVファイル先頭にヘッダを一括追記した
-            TARGET=/tmp/work/Html.Responsive.FontSize.20230412115805/docs/4/html/locales/en/genre-works/
-            cd "$TARGET"
-            find . -name '*.tsv' | xargs sed -i '1s/^/nameEn\turlEn\tnameJa\turlJa\n/'
-        */
+        // TSVファイル先頭にヘッダを一括追記した
+        //    TARGET=/tmp/work/Html.Responsive.FontSize.20230412115805/docs/4/html/locales/en/genre-works/
+        //    cd "$TARGET"
+        //    find . -name '*.tsv' | xargs sed -i '1s/^/nameEn\turlEn\tnameJa\turlJa\n/'
     }
     async makeUi() {
         if (!this.genres) { await this.load() }
         this.#addGenreSelectOptions()
         this.#resetSubGenreSelect(this.genres[0].sid)
-        //this.genreSelect.value = this.genres[0].sid
         this.genreSelect.dispatchEvent(new Event('change'))
     }
     #addGenreSelectOptions() {
@@ -53,17 +47,17 @@ class Genre {
             option.value = this.genres[i].sid
             this.genreSelect.appendChild(option)
         }
-        this.genreSelect.addEventListener('change', (e) => {
+        this.genreSelect.addEventListener('change', async(e) => {
             this.#resetSubGenreSelect(e.target.value)
             const genre = this.genres.filter(g=>g.sid===e.target.value)[0]
-            //document.getElementById('genre-summary').textContent = genre.summaryJa
             document.getElementById('genre-summary').value = genre.summaryJa
             document.getElementById('genre-icon').src = `asset/image/icon/genre/png/220x220/${genre.lid}.png`
             document.getElementById('genre-icon').title = genre.label
+            await this.#resetWorkExamples(genre.sub[0])
         })
         this.subGenreSelect = document.getElementById('sub-genre')
-        this.subGenreSelect.addEventListener('change', (e) => {
-            this.#resetWorkExamples(e.target.value)
+        this.subGenreSelect.addEventListener('change', async(e) => {
+            await this.#resetWorkExamples(e.target.value)
         })
     }
     #resetSubGenreSelect(genreId) {
@@ -79,42 +73,22 @@ class Genre {
             }
         }
     }
-    #resetWorkExamples(subGenreId) {
-        console.log(this.workExamples.get(subGenreId))
-//        `locales/en/genre-works/wd/cop-whydunit.tsv`
-//        `locales/en/genre-works/${this.genreSelect.value}/${subGenreId}.tsv`
-    }
-    /*
-    makeGenreSelect() {
-        this.genreSelect = document.createElement('select')
-        this.genreSelect.setAttribute('id', 'genre')
-        for (let i=0; i<this.genres.length; i++) {
-            const option = document.createElement('option')
-            option.textContent = this.genres[i].label
-            option.value = this.genres[i].sid
-            this.genreSelect.appendChild(option)
+    async #resetWorkExamples(subGenreId) {
+        const works = await this.loadWorkExample(subGenreId)
+        const ul = document.createElement('ul')
+        ul.style = 'list-style-type:none;'
+        for (let w of works) {
+            const li = document.createElement('li')
+            const a = document.createElement('a')
+            li.style = 'display:inline-block;padding-right:1em;'
+            a.textContent = (w.nameJa) ? w.nameJa : w.nameEn
+            a.href = (w.urlJa) ? w.urlJa : w.urlEn
+            li.appendChild(a)
+            ul.appendChild(li)
         }
-        this.genreSelect.addEventListener('change', (e) => {
-            this.resetSubGenre(e.target.value)
-        })
-
-            document.querySelector(senders[i]).addEventListener('change', (e) => {
-        return select
+        document.getElementById('genre-work-examples').innerHTML = ''
+        document.getElementById('genre-work-examples').appendChild(ul)
     }
-    makeSubGenreSelect() {
-        this.subGenreSelect = document.createElement('select')
-        this.subGenreSelect.setAttribute('id', 'sub-genre')
-        for (let i=0; i<this.genres.length; i++) {
-            const option = document.createElement('option')
-            option.textContent = this.genres[i].label
-            option.value = this.genres[i].sid
-            select.appendChild(option)
-        }
-        this.subGenreSelect.addEventListener('change', (e) => {
-            this.resetSubGenreSelect(e.target.value)
-        })
-    }
-    */
 }
 window.Genre = new Genre()
 })()
