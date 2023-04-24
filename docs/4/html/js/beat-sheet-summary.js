@@ -1,5 +1,4 @@
 (function() {
-(function() {
 class BeatSheetSummary {
     constructor() { this.beats = null; this.table = null; }
     async setup() {
@@ -11,15 +10,28 @@ class BeatSheetSummary {
     }
     #makeStyle() {
         const style = document.createElement('style')
-        const css = `:root { --beat-sheet-summary-description-display:inherit; }
-#beat-sheet-summary table tr td:nth-child(4) { display:var(--beat-sheet-summary-description-display); }`
+        const css = `:root { --beat-sheet-summary-description-display:inherit; --beat-sheet-summary-input-width:50vw; }
+#beat-sheet-summary:is(table,tr,td,input) { padding:0; margin:0; }
+#beat-sheet-summary table tr td:nth-child(4) { display:var(--beat-sheet-summary-description-display); }
+#beat-sheet-summary table tr td input { width:var(--beat-sheet-summary-input-width); }`
         style.textContent = css
         return style
     }
     #setupEvent() {
-        document.getElementById('is-show-beat-sheet-summary-description').addEventListener('change', async(event) => {
+        const ui = document.getElementById('is-show-beat-sheet-summary-description')
+        ui.addEventListener('change', async(event) => {
             document.querySelector(':root').style.setProperty('--beat-sheet-summary-description-display', (event.target.checked) ? 'inherit' : 'none')
+            this.#getInputWidth(event.target.checked) 
         })
+        ui.checked = false
+        ui.dispatchEvent(new Event('change'))
+    }
+    #getInputWidth(isShowDescription) {
+        const lastTd = document.querySelector('#beat-sheet-summary table tr td:last-child')
+        console.log(`${lastTd.getBoundingClientRect().left}px`)
+        const width = (isShowDescription) ? `50vw` : `calc(99vw - ${lastTd.getBoundingClientRect().left}px)`
+        console.log(`${width}`)
+        document.querySelector(':root').style.setProperty('--beat-sheet-summary-input-width', width)
     }
     async #load() {
         if (this.beats) { return this.beats }
@@ -56,7 +68,8 @@ class BeatSheetSummary {
         const input = document.createElement('input')
         input.id = id
         input.type = 'text'
-        input.style = 'min-width:50vw;max-width:100%;'
+        input.style = 'width:var(--beat-sheet-summary-input-width);'
+        //input.style = 'min-width:50vw;max-width:100%;'
         //input.style = 'width:9999px;'
         //input.style = 'width:minmax(50vw, 100%);'
         //input.placeholder = placeholder
@@ -68,5 +81,3 @@ class BeatSheetSummary {
 }
 window.BeatSheetSummary = new BeatSheetSummary()
 })()
-})()
-

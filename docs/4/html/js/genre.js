@@ -1,7 +1,6 @@
 (function() {
 class Genre {
     constructor() { this.genres = null; this.workExamples = new Map(); this.genreSelect = null; this.subGenreSelect = null; }
-    //async load() { await Promise.all([this.loadGenres(), this.loadWorkExamples()]); }
     async setup() {
         if (!this.genres) { await this.#load() }
         this.#addGenreSelectOptions()

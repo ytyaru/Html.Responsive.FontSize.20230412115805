@@ -1,5 +1,4 @@
 (function() {
-(function() {
 class BeatSheetDetails {
     constructor() { this.trans = null; }
     async setup() {
@@ -33,7 +32,6 @@ class BeatSheetDetails {
                 })
             }
         }
-        document.querySelectorAll('textarea.flex').forEach(setupFlexTextarea)
     }
     async #load() {
         if (!this.trans) {
@@ -45,6 +43,5 @@ class BeatSheetDetails {
     }
 }
 window.BeatSheetDetails = new BeatSheetDetails()
-})()
 })()
 
