@@ -64,7 +64,7 @@ class BeatSheetSummary {
         console.log(id, placeholder)
         const td = document.createElement('td')
         const input = document.createElement('input')
-        input.id = id
+        input.id = `summary-${id}`
         input.type = 'text'
         input.style = 'width:var(--beat-sheet-summary-input-width);'
         input.placeholder = (placeholder) ? placeholder : ''
