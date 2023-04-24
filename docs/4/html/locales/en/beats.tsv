@@ -1,21 +1,21 @@
-order	sid	lid	label	pos	description	descriptionJa
-1	OI	opening-image	Opening Image	0-1	before picture of your hero (or world)	主人公や世界が変化する前の様子を示す
-2	TS	theme-stated	Theme stated	5	
-3	SU	setup	Setup	1-10	
-4	CA	catalyst	Catalyst	10	
-5	DE	debate	Debate	10-20	
-6	B2	break-into-2	Break into 2	20	
-7	BS	b-story	B-Story	22	
-8	FG	fun-and-games	Fun & Games	20-50	
-9	MP	midpoint	Midpoint	50	
-10	BG	bad-guys-close-in	Bad Guys Close In	50-75	
-11	AL	all-is-lost	All is lost	75	
-12	DS	dark-night-of-the-soul	Dark night of the Soul	75-80	
-13	B3	break-into-3	Break into 3	80	
-14	FN	finale	Finale	80-99	
-15	FI	final-image	Final Image	99-100	
-14-1	GT	gather-the-team	Gather the team	80-82	
-14-2	SC	storming-the-castle	Storming the Castle	83-86	
-14-3	HS	hightower-surprise	Hightower Surprise	87-90	
-14-4	DD	dig-deep-down	Dig deep down	91-94	
-14-5	EP	execute-new-plan	Execute new plan	95-99	
+order	sid	lid	label	pos	description	labelJa	descriptionJa
+1	OI	opening-image	Opening Image	0-1	A thematic or grabbing visual image, scene, or short sequence which sets the tone of your movie. It often serves as the “before” picture of your hero (or world) that will transform throughout the story.	開幕像	主人公や世界が変化する前の様子を示す。Final Imageと対比になる。
+2	TS	theme-stated	Theme stated	5	A line of dialogue that organically states what your story is all about. The theme is typically voiced by another character to your hero, calling out the hero’s deeper flaw or spiritual need for change.	主題提起	この物語で作者が読者に伝えたいこと。主人公が学ぶこと。主人公の欠陥が他の登場人物によって示され、変化の必要性を呼び起こす。
+3	SU	setup	Setup	1-10	Reveals your main character’s “ordinary life” or status quo. Takes time to demonstrate a character’s flaws that negatively impact the hero’s life. Describes the character’s familiar world when it comes to home, work, and play, and introduces the main characters who inhabit the hero’s life.	状況設定	主人公の欠陥を明らかにする。家庭、仕事、遊びの日常で欠陥を示す。主人公の日常は停滞し死んでいる（stasis=death）。このままではマズイことを暗示する。
+4	CA	catalyst	Catalyst	10	The life-changing moment that happens to the hero and sets the story in motion. Provides that initial shove onto the story roller coaster.	きっかけ	日常が破綻し、大事件がはじまる最初のきっかけ。主人公の欠陥によって誘発されることもある。
+5	DE	debate	Debate	10-20	The reaction to the Catalyst, usually presented in the form of a question (“Do I really have to go on this dangerous quest?”). Can be a sequence of doubt, denial, evasion, or even preparation. It lends weight to the life-changing bigger journey yet to come and foreshadows the new world as one that you do not enter lightly.	議論	カタリストへの反応。質問形式で示す。「本当にこの危険な旅をせねばならないのか？」など。カタリストに対してあらゆる疑い、否定、回避を試みる。
+6	B2	break-into-2	Break into 2	20	The hero decides to take action and locks in to accomplish a goal, venturing into a new world, or choosing a new way of  thinking. This is a no-turning-back decision that separates the old, ordinary world from the new world.	２幕への岐路	主人公は行動を起こすことを決心する。目標達成のために一旦気持ちを押し込めたり、新たな世界に足を踏み入れたり、新たな考え方を選ぶ。これは後戻りできない決断である。主人公は欲しい物（WANT）を見定め、それを阻む問題（Problem）がある。
+7	BS	b-story	B-Story	22	A thematic secondary story is kicked off. Often, this is a story about love or friendship or mentorship.	副話	メインストーリーとは別の物語がはじまる。愛、友情、師弟の話であることが多い。Dark night of the soulでメインストーリーと繋がる。
+8	FG	fun-and-games	Fun & Games	20-50	The hero is in the new world. This beat delivers on the promise of the premise. It’s a large section of the story that essentially presents “the movie you came to see.” Contains scenes and sequences that are shown in the trailer of movies or hinted at in the blurb on the back of the book or on that “Coming Next Week” teaser at the end of a TV show.	お約束	お約束を果たす。読者が期待していたことをやる。宣伝や予告された見所を示す。
+9	MP	midpoint	Midpoint	50	The middle of the story and culmination of the Fun & Games. Usually, this beat is a false victory or a false defeat. The Midpoint raises the stakes on the hero, forcing them to narrow their focus on winning the day or surviving. Often, a ticking clock is introduced here, ratcheting up tension and boosting the urgency.	中点	物語の中間であり、Fun & Gamesの集大成。主人公は欲しい物（WANT）を得て、偽りの勝利をする。または主人公のWANTを阻むProblemにより偽りの敗北をする。直後、物語はメインストーリーに戻り、緊張・緊急性が高まる。
+10	BG	bad-guys-close-in	Bad Guys Close In	50-75	Stakes have raised and tension is higher. External Bad Guys may be literally closing in or psychological, internal Bad Guys may be causing more problems.	迫る悪	敵が活躍する。裏切り者が暗躍する。主人公は危機に陥り絶望する。WANTを失い偽りの勝利から一転、絶望する。または偽りの敗北から一転、希望を得る。
+11	AL	all-is-lost	All is lost	75	The moment the hero most feared actually happens. Now it looks like the hero will lose. Usually contains a whiff of death where someone has died or the threat of real death is in the air. This is the hero’s rock-bottom moment.	全損	主人公は全てを失う。最も恐れていた事態が起きてしまう。誰かが死んだり絶望的な状況など、死の気配（whiff of death）が漂う。
+12	DS	dark-night-of-the-soul	Dark night of the Soul	75-80	A reaction to the All Is Lost where the hero wallows in sadness, mourning what was lost and lamenting that they are now worse off than before the story began. This is an opportunity to take stock, where meaningful learning happens on the way to transformation.	心の闇	All is Lostへの反応。主人公は悲しみにうなされ、失われたものを嘆き、物語の開始時点より状況が悪化していることを嘆く。主人公はここで自分の欠陥に叩きのめされる。
+13	B3	break-into-3	Break into 3	80	A new piece of information is discovered and the hero realizes what they must do to solve all the problems that have been created in Act 2.	３幕への岐路	主人公は新しい情報を発見し、これまでの問題を解決するためにすべきことを理解する。
+14	FN	finale	Finale	80-99	The big showdown where the hero finally proves they’ve learned the lesson that was taught via their struggles in Act 2. The quest is won, the dragon is slain, and when the smoke clears, the hero has changed. Their flaw is repaired and the world is indeed a better place.	最終局面	主人公がこれまでの経験で得た教訓を証明する大きな戦い。主人公が変化し、欠陥が修復され、世界はよりよい場所になったことを示す。
+14-1	GT	gather-the-team	Gather the team	80-82	This is the preparation section of the finale. This section can also include the hero having to make amends and repair bridges that were burned in the All is Lost or in the Bad Guys Close In beats.	準備	最終局面の準備。All is Lost または Bad Guys Close In ビートで燃やされた橋を修復する等。
+14-2	SC	storming-the-castle	Storming the Castle	83-86	This is where the hero actually puts the plan into action.	計画実行	主人公が計画を実行する。Break into 3 で得た着想や計画を行い、順調にこなす。
+14-3	HS	hightower-surprise	Hightower Surprise	87-90	It’s an unexpected roadblock. 	予想外の障害	予想外の障害に阻まれ驚く。計画は失敗し、変更を余儀なくされる。
+14-4	DD	dig-deep-down	Dig deep down	91-94	Hero really digs deep down and finds the answer buried within themselves.	深く掘下る	深く掘り下げ、答えを見つける。自分の中でどのような変化を起こす必要があるのか。究極の解決策にたどり着く。主人公は自身の欠陥を理解し、テーマを学んだことを証明する。
+14-5	EP	execute-new-plan	Execute new plan	95-99	This is when the hero realizes what they have to do to really solve their problem, achieve their goal, and get around that High Tower Surprise that’s standing in the way of it.	新計画実行	Hightower Surpriseを回避して問題を解決するために何をすべきか理解する。大きな戦いに勝利（または敗北）する。もし敗北によるバッドエンドならテーマについて語るなど意義のあるものにする。
+15	FI	final-image	Final Image	99-100	The “after photo” of the hero and the world. A mirror of the Opening Image. Shows how far the world and the hero have transformed.	閉幕像	戦後の世界と主人公を示す。主人公と世界がどれだけ変化したかを示す。Opening Imageとの対比。

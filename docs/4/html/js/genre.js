@@ -2,8 +2,14 @@
 class Genre {
     constructor() { this.genres = null; this.workExamples = new Map(); this.genreSelect = null; this.subGenreSelect = null; }
     //async load() { await Promise.all([this.loadGenres(), this.loadWorkExamples()]); }
-    async load() { await this.loadGenres() }
-    async loadGenres() {
+    async setup() {
+        if (!this.genres) { await this.#load() }
+        this.#addGenreSelectOptions()
+        this.#resetSubGenreSelect(this.genres[0].sid)
+        this.genreSelect.dispatchEvent(new Event('change'))
+    }
+    async #load() { await this.#loadGenres() }
+    async #loadGenres() {
         if (this.genres) { return this.genres }
         this.genres = await Tsv.load(`locales/en/genre.tsv`)
         console.log(this.genres)
@@ -12,7 +18,7 @@ class Genre {
             this.genres[i].sub = this.genres[i].sub.split(',')
         }
     }
-    async loadWorkExample(subGenreId) {
+    async #loadWorkExample(subGenreId) {
         if (!this.workExamples.has(subGenreId)) {
             const sid = document.getElementById('genre').value
             const path = `locales/en/genre-works/${sid}/${subGenreId}.tsv`
@@ -20,7 +26,7 @@ class Genre {
         }
         return this.workExamples.get(subGenreId)
     }
-    async loadWorkExamples() { // 一気に50ファイル取得するため遅延が酷いので使わない
+    async #loadWorkExamples() { // 一気に50ファイル取得するため遅延が酷いので使わない
         for (let genre of this.genres) {
             for (let sub of genre.sub) {
                 const path = `locales/en/genre-works/${genre.sid}/${sub}.tsv`
@@ -31,12 +37,6 @@ class Genre {
         //    TARGET=/tmp/work/Html.Responsive.FontSize.20230412115805/docs/4/html/locales/en/genre-works/
         //    cd "$TARGET"
         //    find . -name '*.tsv' | xargs sed -i '1s/^/nameEn\turlEn\tnameJa\turlJa\n/'
-    }
-    async makeUi() {
-        if (!this.genres) { await this.load() }
-        this.#addGenreSelectOptions()
-        this.#resetSubGenreSelect(this.genres[0].sid)
-        this.genreSelect.dispatchEvent(new Event('change'))
     }
     #addGenreSelectOptions() {
         this.genreSelect = document.getElementById('genre')
@@ -75,7 +75,7 @@ class Genre {
         }
     }
     async #resetWorkExamples(subGenreId) {
-        const works = await this.loadWorkExample(subGenreId)
+        const works = await this.#loadWorkExample(subGenreId)
         const ul = document.createElement('ul')
         ul.style = 'list-style-type:none;'
         for (let w of works) {

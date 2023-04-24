@@ -1,5 +1,11 @@
 window.addEventListener('DOMContentLoaded', async(event) => {
     console.log('DOMContentLoaded!!');
+//    await Genre.makeUi()
+//    await BeatSheetSummary.setup()
+//    await BeatSheetDetails.setup()
+    Promise.all([Genre.setup(), BeatSheetSummary.setup(), BeatSheetDetails.setup()])
+    document.querySelectorAll('textarea.flex').forEach(setupFlexTextarea)
+    /*
     const res = await fetch(`locales/ja/translation.json`)
     console.log(res)
     const trans = await res.json()
@@ -30,6 +36,9 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     }
     document.querySelectorAll('textarea.flex').forEach(setupFlexTextarea)
     await Genre.makeUi()
+    */
+
+
     /*
     for (let el of document.querySelectorAll(`input[type=text], textarea, select, button`)) {
         console.log(trans.name[el.name])
