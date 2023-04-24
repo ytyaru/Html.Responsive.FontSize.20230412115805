@@ -48,11 +48,9 @@ class BeatSheetSummary {
     #makeTr(beat) {
         const tr = document.createElement('tr')
         //for (let key of ['order', 'sid', 'lid', 'label', 'pos', 'description', 'labelJa', 'descriptionJa']) {
-        //for (let key of ['order', 'sid', 'label', 'pos', 'labelJa', 'descriptionJa']) {
         for (let key of ['order', 'label', 'pos', 'descriptionJa']) {
             tr.appendChild(this.#makeTd(beat[key]))
         }
-        //console.log(beat.lid, beat.labelJa)
         tr.appendChild(this.#makeInput(beat.lid, beat.labelJa))
         return tr
     }
@@ -69,12 +67,7 @@ class BeatSheetSummary {
         input.id = id
         input.type = 'text'
         input.style = 'width:var(--beat-sheet-summary-input-width);'
-        //input.style = 'min-width:50vw;max-width:100%;'
-        //input.style = 'width:9999px;'
-        //input.style = 'width:minmax(50vw, 100%);'
-        //input.placeholder = placeholder
         input.placeholder = (placeholder) ? placeholder : ''
-        //input.setAttribute('placeholder', (placeholder) ? placeholder : '')
         td.appendChild(input)
         return td
     }
