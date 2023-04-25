@@ -3,7 +3,7 @@ class Downloader {
     constructor() { }
     setup() { document.getElementById('download').addEventListener('click', async(event) => { this.download() }) }
     download() {
-        const blob = new Blob([JSON.stringify(this.#getData())], {type:'text/plain'});
+        const blob = new Blob([JSON.stringify(this.#getData())], {type:'application/json;charset=utf-8'});
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         document.body.appendChild(a);
