@@ -5,20 +5,20 @@ class BeatSheetDetails {
         await this.#load()
         // ラベル＆プレースホルダー設定
         for (let el of document.querySelectorAll(`input[type=checkbox], input[type=radio]`)) {
-            if (this.trans.name.hasOwnProperty(el.value)) {
+            if (this.trans.form.label.hasOwnProperty(el.value)) {
                 console.log(el.value)
-                el.parentElement.append(this.trans.name[el.value])
+                el.parentElement.append(this.trans.form.label[el.value])
             }
         }
         for (let el of document.querySelectorAll(`input[type=text], textarea, select, button`)) {
-            if (this.trans.placeholder.hasOwnProperty(el.name)) {
-                el.setAttribute('placeholder', this.trans.placeholder[el.name])
+            if (this.trans.form.placeholder.hasOwnProperty(el.name)) {
+                el.setAttribute('placeholder', this.trans.form.placeholder[el.name])
             }
         }
         // 連動ラジオボタン
         const interactions = {
-            'false-victory': 'bad-guys-close-despire',
-            'false-defert': 'bad-guys-close-hope',
+            'false-victory': 'bad-guys-close-in-despire',
+            'false-defert': 'bad-guys-close-in-hope',
             'theam-assembles': 'storming-the-castle-despire',
             'theam-abandons-hero': 'storming-the-castle-hope'
         }

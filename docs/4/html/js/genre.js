@@ -76,7 +76,7 @@ class Genre {
     async #resetWorkExamples(subGenreId) {
         const works = await this.#loadWorkExample(subGenreId)
         const ul = document.createElement('ul')
-        ul.style = 'list-style-type:none;'
+        ul.style = 'list-style-type:none;padding:0;margin:0;'
         for (let w of works) {
             const li = document.createElement('li')
             const a = document.createElement('a')

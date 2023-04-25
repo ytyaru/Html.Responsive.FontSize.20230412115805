@@ -30,7 +30,6 @@
 -->
 <script src="js/flex-textarea.js"></script>
 <script src="js/tsv.js"></script>
-<script src="js/logline-table.js"></script>
 <script src="js/genre.js"></script>
 <script src="js/beat-sheet-summary.js"></script>
 <script src="js/beat-sheet-details.js"></script>
@@ -56,23 +55,7 @@
 <div style="display:table-row;" title="Central Question（主人公が解決すべき課題。生き残れるか等）">
 <label style="display:table-cell;padding:0;margin:0;" for="central-question">CQ</label><input type="text" id="central-question" name="central-question" placeholder="主人公が解決すべき課題。生き残れるか等" style="display:table-cell;width:100%;"></div>
 <div style="display:table-row;" title="ログライン（誰が、何して、どう変わるか）">
-<div style="display:table-cell;padding:0;margin:0;">
-<label style="display:table-cell;padding:0;margin:0;" for="logline">Logline</label>
-<label><input type="checkbox" id="is-show-logline-table" name="is-show-logline-table"></label>
-</div>
-<textarea id="logline" name="logline" placeholder="誰が、何して、どう変わるか" class="flex" style="width:100%;min-height:max-content;display:table-cell;"></textarea></div>
-
-<div style="display:table-row;" title="ログライン（誰が、何して、どう変わるか）">
-<label style="display:table-cell;padding:0;margin:0;" for="logline-stasis-death"></label>
-<table id="logline-table">
-<tr class="pink"><td><input type="text" id="logline-stasis-death" name="logline-stasis-death" placeholder="停滞＝死" style="display:table-cell;width:100%;"></input></td><td><span>の寸前で、</span></td></tr>
-<tr class="pink"><td><input type="text" id="logline-flawed-protagonist" name="logline-flawed-protagonist" placeholder="こんな欠陥のある主人公" style="display:table-cell;width:100%;"></input></td><td><span>が、</span></td></tr>
-<tr class="green"r><td><input type="text" id="logline-break-into-2" name="logline-break-into-2" placeholder="２幕への決断" style="display:table-cell;width:100%;"></input></td><td><span>をするも、</span></td></tr>
-<tr class="green"r><td><input type="text" id="logline-modpoint-happen" name="logline-logline-modpoint-happen" placeholder="Midpointで事件" style="display:table-cell;width:100%;"></input></td><td><span>が起きて</span></td></tr>
-<tr class="green"><td><input type="text" id="logline-all-is-lost" name="logline-all-is-lost" placeholder="すべてを失い" style="display:table-cell;width:100%;"></input></td><td><span>、</span></td></tr>
-<tr class="blue"><td><input type="text" id="logline-theme" name="logline-theme" placeholder="テーマ" style="display:table-cell;width:100%;"></input></td><td><span>を学ぶ。</span></td></tr>
-</table>
-</div>
+<label style="display:table-cell;padding:0;margin:0;" for="logline">Logline</label><!--<input type="text" id="logline" name="logline" placeholder="誰が、何して、どう変わるか" style="display:table-cell;width:100%;">--><textarea id="logline" name="logline" placeholder="誰が、何して、どう変わるか" class="flex" style="width:100%;min-height:max-content;"></textarea></div>
 
 <div style="display:table-row;" title="ジャンル">
 <label style="display:table-cell;padding:0;margin:0;width:0px;" for="genre">Genre</label>
@@ -118,8 +101,8 @@
 <label><input type="radio" name="midpoint-is-false-victory" value="false-defert" placeholder=""></label></div>
 <textarea id="midpoint" name="midpoint" placeholder=""></textarea></section>
 <section class="green row3"><h3>Bad guys close in</h3><div style="text-align:center;">
-<label><input type="radio" name="bad-guys-close-in-is-despire" value="bad-guys-close-in-despire" placeholder=""></label>
-<label><input type="radio" name="bad-guys-close-in-is-despire" value="bad-guys-close-in-hope" placeholder=""></label></div>
+<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-despire" placeholder=""></label>
+<label><input type="radio" name="bad-guys-close-is-despire" value="bad-guys-close-hope" placeholder=""></label></div>
 <textarea id="bad-guys-close-in" name="bad-guys-close-in" placeholder=""></textarea>
 </section>
 <section class="green"><h3>All is lost</h3><textarea id="all-is-lost" name="all-is-lost" placeholder=""></textarea></section>

@@ -24,5 +24,7 @@ function setupFlexTextarea(ta) {
         dummy.textContent = e.target.value + '\u200b'
         //e.target.previousElementSibling.textContent = e.target.value + '\u200b'
     })
+    ta.value = ''
+    ta.dispatchEvent(new Event('input'))
 }
 
